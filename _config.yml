@@ -10,11 +10,12 @@ url: "http://yueshangmx.top"
 
 # Comment
 comment:
-   
+   disqus: yueshangmx
+   # uyan: 2146599
 
 # Social
 social:
-    weibo: yueshang9310@sina.cn
+    weibo: weibo.com/ysmx9310
     github: yueshangmx
     # twitter: 
     mail: yueshang9310@hotmail.com
