@@ -256,7 +256,7 @@ Configuration file: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/yeushangm
 ### Q&A 
 
 > 问题：因为我绑定了自己的域名yueshangmx.top,所以直接使用我的模板可能会报错：The CNAME `yueshangmx.top` is already taken 
-> 解决：把CNAME里面的yueshangmx.top修改成你自己的域名，如果你暂时没有域名，CNAME里面就什么都不用谢。
+> 解决：把CNAME里面的yueshangmx.top修改成你自己的域名，如果你暂时没有域名，CNAME里面就什么都不用写。
 
 
 
