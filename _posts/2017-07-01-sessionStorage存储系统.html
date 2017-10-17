@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>sessionStorage实现记事本功能</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+	<input type="text" id="note" />
+	<button id="save">保存</button>
+	<button id="read">读取</button>
+	<button id="remove">删除</button>
+</body>
+<script>
+	$("#save").bind("click",function(){
+		sessionStorage.setItem(new Date().getTime(),$("#note").val());
+	});
+	$("#read").bind("click",function(){
+		for(var i=0;i<sessionStorage.length;i++){
+			var key=sessionStorage.key(i);
+			console.log(key+" : "+sessionStorage.getItem(key));
+		}
+	});
+	$("#remove").bind("click",function(){
+		/*for(var i=sessionStorage.length-1;i>=0;i--){
+			var key=sessionStorage.key(i);
+			sessionStorage.removeItem(key);
+		}*/
+		sessionStorage.clear();
+	});
+</script>
+</html>
