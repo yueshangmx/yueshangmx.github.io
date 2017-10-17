@@ -8,8 +8,7 @@
 ## 获取博客模板
 
 > $ git clone https://github.com/yeushangmx/yeushangmx.github.io.git
-
-或者直接[下载博客](https://github.com/yeushangmx/yeushangmx.github.io/archive/master.zip)   
+   
 
 进yeushangmx.github.io/ 目录下， 开启本地服务 
 

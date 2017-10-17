@@ -1,3 +1,10 @@
+---
+layout: post
+title: sessionStorage存储功能
+date: 2017-07-01 
+tags: 笔记   
+---
+
 <!doctype html>
 <html>
 <head>
