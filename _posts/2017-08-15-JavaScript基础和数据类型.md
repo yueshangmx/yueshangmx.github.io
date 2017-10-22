@@ -103,7 +103,7 @@ c. 每个表达式有且仅有一个执行结果。
 
     b. var n=parseFloat(str); #原理和parseInt相同，但是parseFloat可以识别第一个小数点。
 ```
-- 任意类型 to Boolean：1种
+- 任意类型 to Boolean：1种<br>
 `说明："空字符串"  NaN  undefined null 0 转为Boolean输出结果是 false，其他所有都是true！`
 ```
 1. var bool=Boolean(x); #隐式转换
