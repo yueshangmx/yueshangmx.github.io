@@ -3,7 +3,7 @@ layout: page
 title: 关于我 
 ---
 
-一个 web前端 开发者，喜欢研究一些新技术。
+一个 web前端 开发者，喜欢研究一些新技术。有兴趣可以去看看我个人学习web过程中的一些[实例](http://yueshangmx.gitee.io/web/)
 <p>
 平时喜欢整理个人博客，逛逛技术论坛。
 <p>
