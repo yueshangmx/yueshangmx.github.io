@@ -165,10 +165,11 @@ do{
 while(循环条件)
 ```
 
-<font color="red">差别：<br>
+```
+差别：
 	当第一次条件满足时，while和do while完全一样！<br>
 	当第一次条件就不满足时，do while至少会执行一次，while一次都不执行
-</font>
+```
 
 >* 3.for 循环：
 ```
