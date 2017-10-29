@@ -131,8 +131,6 @@ switch(表达式){
 switch vs else if：
 	switch：条件是全等比较时，首选switch case；
 	else if：除全等比较外，希望灵活定义条件时。
-
-
 ```
 
 `循环结构`：让程序反复执行一段代码，只有达到临界条件时，停止循环。
@@ -152,7 +150,6 @@ while(循环条件){
 	循环体;
 	迭代变化循环变量;
 }
-
 退出循环：2种
 	1）自然退出：不满足循环条件时，自动退出循环
 	2）手动退出：程序员在循环体中用break强行退出循环
@@ -168,6 +165,7 @@ do{
 while(循环条件)
 ```
 
-<font color="red">差别：当第一次条件满足时，while和do while完全一样！
-		  当第一次条件就不满足时，do while至少会执行一次，while一次都不执行
+<font color="red">差别：<br>
+	当第一次条件满足时，while和do while完全一样！<br>
+	当第一次条件就不满足时，do while至少会执行一次，while一次都不执行
 </font>
