@@ -2,6 +2,7 @@
 layout: post
 title: 7.JavaScript运算符和表达式
 date: 2017-08-17
+description: "JavaScript运算，JavaScript表达式，运算符，JavaScript，js"
 tags: 笔记   
 ---
 - 什么是程序：让计算机按照人的想法去执行任务。

@@ -2,6 +2,7 @@
 layout: post
 title: 8.JavaScript函数和分支结构
 date: 2017-08-20
+description: "JavaScript，函数，分支结构，循环结构，JS"
 tags: 笔记   
 ---
 

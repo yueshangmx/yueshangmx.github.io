@@ -2,6 +2,7 @@
 layout: post
 title: Jekyll搭建个人博客
 date: 2017-10-15 
+description: "jekyll配置，jekyll+Github，搭建自己的博客"
 tags: 博客   
 ---
 
