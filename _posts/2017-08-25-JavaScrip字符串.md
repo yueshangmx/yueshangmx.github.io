@@ -27,13 +27,13 @@ tags: 笔记
 
 ### String API
 - 1.转义字符：当字符串的内容和程序的特殊符号冲突时，或字符串中包含功能字符时，都用 \ 转化字符的意义。
-
+```
 \n：换行  \t: 一次缩进Tab键
-
+```
 - 2.大小写转换：将字符串中所有字符都统一转为大写或小写。
 ```
-转大写:str=str.toUpperCase();
-转小写:str=str.toLowerCase();
+转大写: str=str.toUpperCase();
+转小写: str=str.toLowerCase();
 ```
 
 - 3.获取指定位置的字符：3种 
@@ -70,7 +70,7 @@ var arr=str.split("分隔符");  /*arr中以数组形式保存每段子字符串
 
 - 7.模式匹配：按照规则查找或替换字符串中的子内容。
 
-(1) 查找：2中
+(1) 查找：2种<br>
 　　1) 只能从开始位置，找第一个匹配的关键字
 ```
 var i=search(/kword/i); /*i表示忽略大小写*/
@@ -122,6 +122,7 @@ var newStr=str.replace(模式,"替换内容")；
 ```
 
 - 量词：规定一个字符集出现的次数
+
 1.明确数量
 ```
 {min,max}	最少min到最多max
@@ -141,6 +142,7 @@ var newStr=str.replace(模式,"替换内容")；
 `(\+86|0086)?\s*1[34578]\d{9}`
 
 >* RegExp对象的方法
+
 1.格式验证
 ```
 var bool=reg.test(str);	/*验证str格式是符合reg的要求,返回的是Boolean值*/
@@ -149,8 +151,7 @@ var bool=reg.test(str);	/*验证str格式是符合reg的要求,返回的是Boole
     $: 表示以xxx结尾。
 ```
 比如：密码强度要求：8位密码，只能是字母、数字组合，至少一位大写字母，一位小写字母<br>
-`(?![a-z0-9]*$)(?![A-Za-z]*$)[a-zA-Z0-9]{8}`
-
+`(?![a-z0-9]*$)(?![A-Za-z]*$)[a-zA-Z0-9]{8}`<br>
 2.查找API
 ```
 var arr=reg.exec(str);  /*在str中查找所有符合reg规定的关键字，要加g*/
