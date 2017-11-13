@@ -28,7 +28,7 @@ round：  Math对象——只能取整数，返回数字
 ```
 最大值：Math.max(a,b,c…);
 最小值：Math.min(a,b,c…);
-`固定套路：变相实现获取数组中的最大值，获取最小值同理`
+#固定套路：变相实现获取数组中的最大值，获取最小值同理
 Math.max.apply(Math,arr)==》相当于Math.max(arr[0],arr[1]......)
 ```
 - 4.随机数
@@ -90,9 +90,9 @@ setTime();	#以毫秒设置 Date 对象。
 
 日期转字符API
 ```
-1. date.toLocaleString(); 转为完整日期字符串
-2. date.toLocaleDateString(); 仅转为日期部分
-3. date.toLocaleTimeString(); 仅转为时间部分   
+1. date.toLocaleString();	#转为完整日期字符串
+2. date.toLocaleDateString();	#仅转为日期部分
+3. date.toLocaleTimeString();	#仅转为时间部分   
 ```
 
 
