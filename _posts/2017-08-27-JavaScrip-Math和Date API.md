@@ -28,7 +28,7 @@ round：  Math对象——只能取整数，返回数字
 ```
 最大值：Math.max(a,b,c…);
 最小值：Math.min(a,b,c…);
- 
+    
 `固定套路：变相实现获取数组中的最大值，获取最小值同理`
 Math.max.apply(Math,arr)==》相当于Math.max(arr[0],arr[1]......)
 ```
@@ -61,8 +61,7 @@ Date();		#返回当日的日期和时间。
 getDate();	#从 Date 对象返回一个月中的某一天 (1 ~ 31)。 
 getDay();	#从 Date 对象返回一周中的某一天 (0 ~ 6)。 
 getMonth();	#从 Date 对象返回月份 (0 ~ 11)。 
-getFullYear();	#从 Date 对象以四位数字返回年份。 
-getYear();	#请使用 getFullYear() 方法代替。 
+getFullYear();	#从 Date 对象以四位数字返回年份。  
 getHours();	#返回 Date 对象的小时 (0 ~ 23)。 
 getMinutes();	#返回 Date 对象的分钟 (0 ~ 59)。 
 getSeconds();	#返回 Date 对象的秒数 (0 ~ 59)。 
@@ -73,7 +72,6 @@ getTime();	#返回 1970 年 1 月 1 日至今的毫秒数。
 setDate();	#设置 Date 对象中月的某一天 (1 ~ 31)。 
 setMonth();	#设置 Date 对象中月份 (0 ~ 11)。 
 setFullYear();	#设置 Date 对象中的年份（四位数字）。 
-setYear();	#请使用 setFullYear() 方法代替。 
 setHours();	#设置 Date 对象中的小时 (0 ~ 23)。 
 setMinutes();	#设置 Date 对象中的分钟 (0 ~ 59)。 
 setSeconds();	#设置 Date 对象中的秒钟 (0 ~ 59)。 
@@ -85,3 +83,18 @@ setTime();	#以毫秒设置 Date 对象。
 `星期没有set方法！`
 
 `只有月中的日从1开始到31结束; 其它分量都是从0开始到减1结束`
+
+日期的计算：<br>
+　　1. 两日期对象直接相减，结果是毫秒差！<br>
+　　2. 对任意分量做加减：先用get取出来,计算后，再set放回去。<br>
+
+*直接修改原日期对象 - `date.setXXX(date.getXXX()+-n)`
+
+日期转字符API
+```
+1. date.toLocaleString(); 转为完整日期字符串
+2. date.toLocaleDateString(); 仅转为日期部分
+3. date.toLocaleTimeString(); 仅转为时间部分   
+```
+
+
