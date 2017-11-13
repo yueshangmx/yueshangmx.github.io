@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 11.JavaScript，Math、Date对象
+title: 11.JavaScript的Math、Date对象
 date: 2017-08-27
 description: "JavaScript，Math，Date，API，JS对象"
 tags: 笔记   
@@ -66,7 +66,6 @@ getMinutes();	#返回 Date 对象的分钟 (0 ~ 59)。
 getSeconds();	#返回 Date 对象的秒数 (0 ~ 59)。 
 getMilliseconds();	#返回 Date 对象的毫秒(0 ~ 999)。 
 getTime();	#返回 1970 年 1 月 1 日至今的毫秒数。
- 
 设置：
 setDate();	#设置 Date 对象中月的某一天 (1 ~ 31)。 
 setMonth();	#设置 Date 对象中月份 (0 ~ 11)。 
