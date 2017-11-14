@@ -16,7 +16,7 @@ RangeError：	#范围错误，参数超出范围。
 EvalError：	#调用eval函数时错误
 URLError：	#URL错误
 ```
-如果处理错误：tryCatch块
+如何处理错误：tryCatch块
 ```
 try{
 	可能出错的代码段;
@@ -86,7 +86,7 @@ JavaScript语法不支持重载！但是可用arguments对象模拟重载效果�
 3). 使用new创建函数类型对象：——了解
     var 函数名=new Function("a","b",……,"函数体");
 ```
-(2) 内存种的函数对象
+(2) 内存中的函数对象
 ```
 创建函数对象时：同时创建2个对象：
 		函数对象：函数的定义
@@ -99,6 +99,90 @@ JavaScript语法不支持重载！但是可用arguments对象模拟重载效果�
 ----
 调用后：作用域链中活动对象的引用出栈，活动对象因无人引用被释放。
 ```
+(3) 匿名函数：定义时不指定函数名的函数。
 
+2大用途：
+```
+1) 匿名函数自调：定义完，立即执行，执行完立刻释放。
+   何时使用：只有确定函数只执行一次时！
+   如何自调：	
+    (function(参数){
+        函数体;
+    })(参数值);
+/*自调：定义在哪，就在哪执行，不提前*/
+----
+2) 匿名函数回调：先将函数作为对象传递给另一个函数，由另一个函数自主决定在需要时调用。
+    何时使用：只要将一个函数对象传递给其他方法调用时，用匿名函数。
+    如何回调：直接将匿名函数的声明传入另一个函数中。
+```
+看下面的例子：命名函数
+```javascript
+var a;
+/***********1.png*****************/
+function fun(a){	//此处的a是局部变量
+    a++;
+    console.log(a);
+}/************2.png****************/
+a=100;
+/************3.png***************/
+fun(a);/************4.png***************/
+/************5.png***************/
+```
+上述对应过程如下图：<br>
+1.![](/images/posts/JavaScript/namedFun/1.png)
+2.![](/images/posts/JavaScript/namedFun/2.png)
+3.![](/images/posts/JavaScript/namedFun/3.png)
+4.![](/images/posts/JavaScript/namedFun/4.png)
+5.![](/images/posts/JavaScript/namedFun/5.png)
 
+匿名函数过程：
+```javascript
+var a=100;
+(function(a){
+    a++;
+    console.log(a);
+})(a);
+```
+对应的图片过程为：
+1.![](/images/posts/JavaScript/anonyFun/1.png)
+2.![](/images/posts/JavaScript/anonyFun/2.png)
+3.![](/images/posts/JavaScript/anonyFun/3.png)
+4.![](/images/posts/JavaScript/anonyFun/4.png)
+
+(4) 闭包
+```
+局部变量和全局变量缺陷:
+    全局变量：容易全局污染（谁都可以修改）
+    局部变量：无法共享，不能长久保存。
+----
+既可以共享，长久保存，又不会全局污染——闭包。
+闭包三特点：
+ (1) 定义外层函数，封装被保护的局部变量
+ (2) 定义内层函数，执行对外层函数局部变量的操作
+ (3) 外层函数返回内层函数的对象，并且外层函数被调用，结果被保存在全局变量中
+
+```
+看如下案例：
+```javascript
+//定义一个取号机函数
+//    每调用一次，顺序生成一个永不重复的序号
+        function outer(){var n=1;function inner(){return n++;}
+            return inner;
+        }
+        //ICBC
+        var getNum=outer();
+        //getNum-->function inner(){ return n++;}
+        console.log(getNum()); //1
+        console.log(getNum()); //2
+        var n=100; //假设有全局污染
+        console.log(getNum()); //3 不受干扰
+        console.log(getNum()); //4
+        //CMCC
+        var getNumCMCC=outer();
+        console.log(getNumCMCC()); //1
+        console.log(getNumCMCC()); //2
+        var n=100; //假设有全局污染
+        console.log(getNumCMCC()); //3 不受干扰
+        console.log(getNumCMCC()); //4
+```
 
