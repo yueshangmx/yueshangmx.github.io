@@ -130,7 +130,7 @@ a=100;
 fun(a);/*----------4.png----------*/
 /*----------5.png----------*/
 ```
-上述案例在内存种的执行过程如下图：<br>
+上述案例在内存中的执行过程如下图：<br>
 1.![](/images/posts/JavaScript/namedFun/1.png)
 2.![](/images/posts/JavaScript/namedFun/2.png)
 3.![](/images/posts/JavaScript/namedFun/3.png)
@@ -145,7 +145,7 @@ var a=100;
     console.log(a);
 })(a);
 ```
-内存种的执行过程为：
+内存中的执行过程为：
 1.![](/images/posts/JavaScript/anonyFun/1.png)
 2.![](/images/posts/JavaScript/anonyFun/2.png)
 3.![](/images/posts/JavaScript/anonyFun/3.png)
