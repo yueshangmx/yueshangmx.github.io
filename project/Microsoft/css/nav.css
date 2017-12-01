@@ -1,0 +1,80 @@
+.clearfix{
+  padding-bottom: 30px;
+}
+.logo-mask{
+  width: 120px;
+}
+.logo{
+  margin-top: -5px;
+}
+.dropdown-menu{
+  background-color: #f2f2f2;
+  padding-bottom: 0;
+}
+.container-fluid .row{
+  padding-bottom: 0 !important;
+}
+.list-datail>div>.row>div>ul>li{
+  padding-bottom: 20px;
+}
+.list-datail a{
+  color: #262626;
+}
+.list-datail h4{
+  padding-bottom: 20px;
+}
+.list-datail ul{
+  padding-bottom: 20px;
+}
+.more_detail{
+  color: #0078d7;
+  padding: 10px 0;
+  text-align: center;
+}
+.more_detail>span{
+  bottom: 0;
+}
+.more_detail .glyphicon-menu-right{
+  padding-top: 2px;
+}
+.login_menu{
+  width: 400px;
+}
+.login{
+  padding: 10px;
+}
+@media screen and (min-width: 1200px) {
+  .container{
+    width: 85% !important;
+  }
+  .search-less-1080{
+    display: none !important;
+  }
+}
+@media screen and (max-width: 1199px){
+  .container{
+    width: 95% !important;
+  }
+}
+@media screen and (min-width: 991px){
+  .more{
+    width: 1080px;
+    left: -400px;
+  }
+}
+@media screen and (max-width: 990px){
+  .more{
+    width: 1000%;
+    left: -400px;
+  }
+}
+@media screen and (max-width: 840px){
+  .search-less-1080{
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px){
+  .search-than-1080{
+    display: none !important;
+  }
+}
