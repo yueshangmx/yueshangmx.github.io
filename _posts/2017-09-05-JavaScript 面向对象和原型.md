@@ -37,7 +37,7 @@ JS中一切都是对象，所有对象的底层，都是hash数组。
 
 访问对象的属性：`obj.属性名`或者`obj["属性名"]`
 
-<font color=#f00>注意：访问对象中不存在的属性 ==> 访问数组中不存在的下标——不会出错，返回undefined；强行给不存在的属性赋值，不会报错！ js会自动创建同名属性</font>
+<font color="#f00">注意：访问对象中不存在的属性 ==> 访问数组中不存在的下标——不会出错，返回undefined；强行给不存在的属性赋值，不会报错！ js会自动创建同名属性</font>
 
 如何判断某个对象是否包含指定成员
 ```
@@ -56,6 +56,28 @@ this关键字：在方法中，若要访问当前对象自己，要使用this关
 
 `this和定义在哪无关！仅和调用时使用的对象有关！`<br>
 `所有无主(不用var赋值的变量，匿名函数)都是window的`
+
+`面试题`
+```javascript
+//鄙视题　　//this-->window
+var a=2;	
+function fun(){		//地址0x1011	
+　　console.log(this.a);
+}
+//this-->window
+ var o={a:3,fun:fun};	//this-->o
+	  				//0x1011
+var p={a:4};			//this-->p
+o.fun();  //this-->o  function里的this.a相当于o.a,输出是3
+	  
+(p.fun=o.fun)();	//2
+//p.fun=0x1011
+//p={a:4,fun:0x1011}
+//返回o.fun中的值！0x1011
+//(0x1011)() ==> 匿名函数自调
+/*赋值表达式的结果相当于等号右侧表达式的值*/
+p.fun();	//4
+```
 
 - (2)new方法
 ```
@@ -107,12 +129,18 @@ new：	①创建一个空对象 new obj={}
 	　　　　　　if(!obj.属性名)
 　　3）仅判断共有：必须满足两个条件
 　　　　！obj.hasOwnProperty(“属性名”)&& “属性名” in obj
+```
+![](/images/posts/JavaScript/prototype/pdgyzysx.png)
+```
 (2) 获得任意对象的原型
 　　obj.__proto__		不推荐用
 　　Object.getPrototypeOf(obj)
+```
+```
 (3) 判断父对象是都在子对象的原型链上
 　　父对象.isPrototypeOf(子对象);
-
+```
+```
 ****检测一个对象是不是数组类型：4种
 　　（1）Array.prototype.isPrototypeOf(obj);
 　　（2）obj instanceof Array				#obj是不是构造函数Array的实例
@@ -163,5 +191,39 @@ js中一切继承都是用原型对象实现的！
 　　}
 　　var obj=new 子类型构造函数(值1，值2，值3);
 ```
-
-
+看下面的例子
+```
+/*创建2个对象，分别描述李雷和韩梅梅:
+	李雷: sname:"Li Lei",age:12
+	韩梅梅: sname:"Han Meimei",age:11
+	都可以做自我介绍:intrSelf()
+*/
+		/*先定义构造函数*/
+		function Student(sname,age){
+			this.sname=sname;
+			this.age=age;
+		}
+		//在构造函数原型对象中定义公共方法
+		Student.prototype.intrSelf=function(){
+			alert("I'm "+this.sname+",I'm "+this.age);
+		}
+		
+		var lilei=new Student("Li Lei",12);
+		var hmm=new Student("Hai Meimei",11);
+		//在构造函数原型对象中定义公共属性
+		Student.prototype.money=100;
+		console.log(lilei.money);
+			//现在当前对象本地找，找不到再去原型，原型中也没有，反返undefined
+		console.log(hmm.money);
+		
+		
+		Student.prototype.money-=20;
+		console.log(lilei.money);
+		console.log(hmm.money);
+		if(!(hmm.hasOwnProperty("money"))&&("money" in hmm)){
+			hmm.money=10;	//仅为hmm添加自有属性
+			hmm.charge=20;
+		 }
+		console.log(lilei.charge); //undefined
+```
+![](/images/posts/JavaScript/prototype/prototype.png)
