@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 13.JavaScrip 原型和面向对象
+title: 13.JavaScrip 面向对象和原型
 date: 2017-09-05
-description: "JavaScript，原型"
+description: "JavaScript，面向对象，原型，继承"
 tags: 笔记   
 ---
 
@@ -99,7 +99,7 @@ new：	①创建一个空对象 new obj={}
 ```
 原型相关的API：
 ```
-（1）判断自有属性和共有属性：
+(1)判断自有属性和共有属性：
 　　1）判断自有：obj.hasOwnProperty(“属性名”)；
 　　2）判断原型链上的属性：3种
 　　　　判断不包含：if(!(“属性名” in obj))	#此处obj应该是对象的原型
@@ -107,15 +107,15 @@ new：	①创建一个空对象 new obj={}
 	　　　　　　if(!obj.属性名)
 　　3）仅判断共有：必须满足两个条件
 　　　　！obj.hasOwnProperty(“属性名”)&& “属性名” in obj
-（2）获得任意对象的原型
-		obj.__proto__		不推荐用
-		Object.getPrototypeOf(obj)
-（3）判断父对象是都在子对象的原型链上
-		父对象.isPrototypeOf(子对象);
+(2) 获得任意对象的原型
+　　obj.__proto__		不推荐用
+　　Object.getPrototypeOf(obj)
+(3) 判断父对象是都在子对象的原型链上
+　　父对象.isPrototypeOf(子对象);
 
 ****检测一个对象是不是数组类型：4种
 　　（1）Array.prototype.isPrototypeOf(obj);
-　　（2）obj instanceof Array					#obj是不是构造函数Array的实例
+　　（2）obj instanceof Array				#obj是不是构造函数Array的实例
 　　（3）obj.constructor==Array;				#仅判断直接父级
 　　（4）利用当前对象，强行调用原始的toString方法
 　　　　Object.prototype.toString.call(obj)==”[object Array]”  #此处call也可用apply替换
@@ -140,7 +140,28 @@ js中一切继承都是用原型对象实现的！
 　　*仅能删除当前对象自己的属性，无法删除共有属性
 ```
 - 为什么要继承：代码重用！节省内存空间！
+```
+(1)直接继承对象：想方设法修改对象的__proto__属性——3种方式：1_inherit.html
+　　1)仅修改一个对象的__proto__
+	Object.setPrototypeOf(子对象,父对象)
+　　2)通过修改构造函数的原型对象，实现批量修改后续子对象的继承关系。
+	构造函数.prototype=父对象;		
+　　　强调：仅影响之后创建的对象的继承关系，之前创建的对象依然继承旧构造函数.prototype
+　　3) var obj=Object.create(父对象[,{属性列表}])  #红色中括号内可以省略
+	创建一个空对象，继承父对象中的属性。
+	继承同时可再扩展属性和方法
+
+(2)仅继承结构： 模拟Java中的继承
+　　function 父类型构造函数(属性参数1,属性参数2){
+　　　　this.属性1=属性参数1;
+　　　　this.属性2=属性参数2;
+　　}
+
+　　function 子类型构造函数(属性参数1,属性参数2,属性参数3){
+　　　　父类型构造函数.call(this,属性参数1,属性参数2);
+　　　　this.属性3=属性参数3；
+　　}
+　　var obj=new 子类型构造函数(值1，值2，值3);
+```
 
 
-
-### 4.
