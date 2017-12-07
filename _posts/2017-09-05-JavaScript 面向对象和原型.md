@@ -41,11 +41,11 @@ JS中一切都是对象，所有对象的底层，都是hash数组。
 
 如何判断某个对象是否包含指定成员
 ```
-① obj.hasOwnProperty(“成员名”)；
+1) obj.hasOwnProperty(“成员名”)；
 　　如果找到，返回true ； 否则返回false！
-② “属性名” in 对象
+2) "属性名" in 对象
 　　如果找到，返回true ； 否则返回false！
-③ 直接使用obj.属性名 作为条件
+3) 直接使用obj.属性名 作为条件
 　　if(arr.indexOf===undefined) 
 　　　　何时省略：判断方法是否存在时，可省略===undefined
 		  如果确定属性值一定不是null，0，""，NaN也可以省略
