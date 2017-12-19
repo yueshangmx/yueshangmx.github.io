@@ -37,6 +37,6 @@ tags: 笔记
 ```
 
 用浏览器打开，发现没有样式，模拟手机也一样，打开控制台发现报了一个错误
-![](/images/posts/errimg/jqmerr.png)
+![](/images/posts/errimg/jqmerr1.png)
 
 查了一下，是因为jQuery Mobile和jQuery的版本不匹配，我当前的jQuery mobile的版本是1.4.5，jQuery用的版本是3.2.1， jQuery重新下2版本以下的试试，我下了1.11.3是可行的
