@@ -245,7 +245,9 @@ Demo:
 ```
 
 - 6.插入节点
+
 1) 内部插入
+
 ```
 append() - append后面的节点被添加到append前面的节点的后面
 prepend() - prepend后面的节点被添加到prepend前面的节点的前面
@@ -288,6 +290,197 @@ Demo:
 
   //prependTo——prependTo前面的节点被添加到prependTo后面的节点的前面
   $("#tj").prependTo($("#ms"));
+</script>
+</html>
+```
+
+2) 外部插入
+
+```
+before() - before后面的节点被添加到before前面的节点的前面
+after() - after后面的节点被添加到after前面节点的后面
+----
+insertBefore() - insertBefore前面的节点添加到insertBefore后面的节点的前面
+insertAfter() - insertAfter前面的节点添加到insertAfter后面的节点的后面
+```
+Demo：
+```
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>07.jQuery中的DOM-外部插入</title>
+  <script src="jquery-3.2.1.js"></script>
+</head>
+
+<body>
+<ul id="city">
+  <li>北京</li>
+  <li id="tj">天津</li>
+  <li>南京</li>
+</ul>
+<ul id="game">
+  <li>反恐</li>
+  <li id="ms">魔兽</li>
+  <li>星际</li>
+</ul>
+</body>
+<script type="text/javascript">
+  //操作天津节点和魔兽节点
+  //before——before后面的节点被添加到before前面的节点的前面
+  //$("#tj").before($("#ms"));
+
+  //after——after后面的节点被添加到after前面节点的后面
+  //$("#tj").after($("#ms"));
+
+  //insertBefore
+  //$("#tj").insertBefore($("#ms"));
+
+  //insertAfter——insertAfter前面的节点添加到insertAfter后面的节点的后面
+  //$("#tj").insertAfter($("#ms"));
+</script>
+</html>
+```
+
+3) 案例
+```
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>插入节点案例</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+
+<div style="border:1px dashed #E6E6E6;margin:150px 0px 0px 450px; width:350px; height:200px; background-color:#E6E6E6;">
+  <table width="285" height="169" border="0" align="left" cellpadding="0" cellspacing="0"
+         style="margin:15px 0px 0px 15px;">
+    <tr>
+      <td width="126">
+        <!--multiple="multiple" 能同时选择多个   size="10"  确定下拉选的长度-->
+        <select name="first" multiple="multiple" size=10 class="td3" id="first">
+          <option value="选项1">选项1</option>
+          <option value="选项2">选项2</option>
+          <option value="选项3">选项3</option>
+          <option value="选项4">选项4</option>
+          <option value="选项5">选项5</option>
+          <option value="选项6">选项6</option>
+          <option value="选项7">选项7</option>
+          <option value="选项8">选项8</option>
+        </select>
+      </td>
+      <td width="69" valign="middle">
+        <input name="add" id="add" type="button" class="button" value="-->"/>
+        <input name="add_all" id="add_all" type="button" class="button" value="==>"/>
+        <input name="remove" id="remove" type="button" class="button" value="&lt;--"/>
+        <input name="remove_all" id="remove_all" type="button" class="button" value="&lt;=="/>
+      </td>
+      <td width="127" align="left">
+        <select name="second" size="10" multiple="multiple" class="td3" id="second">
+          <option value="选项9">选项9</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+<script type="text/javascript">
+  // 1. 选中左边选项,移到右边去
+  $("#add").click(function () {
+    $("#first>option:selected").appendTo($("#second"));
+  });
+  // 2. 将左边所有选项,移到右边去
+  $("#add_all").click(function () {
+    $("#first>option").appendTo($("#second"));
+  });
+
+  $("#remove").click(function () {
+    $("#second>option:selected").appendTo($("#first"));
+  });
+
+  $("#remove_all").click(function () {
+    $("#second>option").appendTo($("#first"));
+  });
+  // 双击事件 - 所有事件全部绑定在select标签
+  $("#first").dblclick(function () {
+    $("#first>option:selected").appendTo($("#second"));
+  });
+
+  $("#second").dblclick(function () {
+    $("#second>option:selected").appendTo($("#first"))
+  });
+</script>
+</html>
+```
+
+- 7.替换节点
+
+```
+repalceWith() - 用replaceWith后面的替换前面的，前面的是被替换的 
+replaceAll() - 就是颠倒了的repalceWith
+```
+Demo:
+```
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>09.jQuery中的DOM-替换节点</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<p>这是段落。</p>
+</body>
+<script>
+  //replaceWith()——用replaceWith后面的替换前面的，前面的是被替换的
+  $("button").replaceWith('<p>这也是段落。</p>');
+
+  //replaceAll
+  $("<button>按钮</button>").replaceAll('p');
+
+</script>
+</html>
+```
+
+- 8.复制节点
+
+```
+jQuery - clone(boolean)
+  * boolean参数 - 表示是否复制事件
+DOM - cloneNode(boolean)
+  * boolean参数 - 表示是否复制后代节点
+```
+Demo:
+```
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>10.jQuery中的DOM-复制节点</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+<button>点我</button>
+<p>这是段落</p>
+</body>
+<script type="text/javascript">
+  $("button").click(function () {
+    alert("xxx");
+  });
+  //jQuery的clone的参数表示是否复制事件
+  $("button").clone(true).appendTo($("p"));
+  /*
+    //DOM的clone的参数表示是否复制子节点
+    var btn=document.getElementsByTagName("button")[0];
+    var copy=btn.clone(true);
+    document.getElementsByTagName("p")[0].appendChild(copy);
+  */
 </script>
 </html>
 ```
