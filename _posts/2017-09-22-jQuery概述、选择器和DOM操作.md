@@ -73,6 +73,7 @@ removeAttr(attrName) - 类似于removeAttribute()
 ```
 
 - 2.样式操作
+
 ```
 attr("class",classValue) - 设置 
 addClass() - 追加样式
@@ -192,6 +193,50 @@ Demo:
 
   /*或者一步到位
   $("#city").append('<li id="cq" name="chongqin">重庆</li>');*/
+</script>
+</html>
+```
+
+- 5.删除节点
+```
+remove() - 删除自身及后代节点
+empty() - (清空)删除后代节点,但保留自身节点
+```
+Demo:
+```
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>05.jQuery中的DOM-删除节点</title>
+  <script src="jquery-3.2.1.js"></script>
+</head>
+
+<body>
+<ul id="city">
+  <li id="bj" name="beijing">北京
+    <ul>
+      <li>大兴区</li>
+      <li>朝阳区</li>
+      <li>海淀区</li>
+    </ul>
+  </li>
+  <li id="tj" name="tianjin">天津
+    <ul>
+      <li>塘沽</li>
+    </ul>
+  </li>
+  <li id="nj" name="nanjing">南京</li>
+  <li id="sh" name="shanghai">上海</li>
+  <li id="cq" name="chongqin">重庆</li>
+</ul>
+</body>
+<script>
+  //删除北京节点
+  $("#bj").remove();
+
+  //删除天津节点
+  $("#tj").empty();
 </script>
 </html>
 ```
