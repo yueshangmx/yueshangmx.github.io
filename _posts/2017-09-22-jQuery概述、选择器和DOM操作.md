@@ -243,3 +243,51 @@ Demo:
 </script>
 </html>
 ```
+
+- 6.插入节点
+1) 内部插入
+```
+append() - append后面的节点被添加到append前面的节点的后面
+prepend() - prepend后面的节点被添加到prepend前面的节点的前面
+----
+appendTo() - appendTo前面的节点被添加到appendTo后面的节点后面
+prependTo() - prependTo前面的节点被添加到prependTo后面的节点的前面
+```
+Demo:
+```
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>06.jQuery中的DOM-内部插入</title>
+  <script src="jquery-3.2.1.js"></script>
+</head>
+
+<body>
+<ul id="city">
+  <li>北京</li>
+  <li id="tj">天津</li>
+  <li>南京</li>
+</ul>
+<ul id="game">
+  <li>反恐</li>
+  <li id="ms">魔兽</li>
+  <li>星际</li>
+</ul>
+</body>
+<script type="text/javascript">
+  //操作天津节点和魔兽节点
+  //append——append后面的节点被添加到append前面的节点的后面
+  $("#tj").append($("#ms"));
+
+  //prepend——prepend后面的节点被添加到prepend前面的节点的前面
+  $("#tj").prepend($("#ms"));
+
+  //appendTo——appendTo前面的节点被添加到appendTo后面的节点后面
+  $("#tj").appendTo($("#ms"));
+
+  //prependTo——prependTo前面的节点被添加到prependTo后面的节点的前面
+  $("#tj").prependTo($("#ms"));
+</script>
+</html>
+```
