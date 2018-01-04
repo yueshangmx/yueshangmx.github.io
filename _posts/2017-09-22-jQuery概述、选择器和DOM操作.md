@@ -46,4 +46,11 @@ DOM对象转换为jQuery对象
   * $(DOM对象)
 jQuery对象转换为DOM对象
   * jQuery对象是数组对象 - 角标
+  * jQuery对象提供get(index)方法
+     * 注意 - DOM对象与jQuery对象之间不能相互调用
 ```
+
+### 3.jQuery选择器
+1.选择器 - 是jQuery的根基
+![](/images/posts/jquery/jquery-selector.png)
+
