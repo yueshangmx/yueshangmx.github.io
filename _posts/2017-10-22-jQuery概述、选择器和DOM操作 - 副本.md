@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 19.jQuery概述、选择器和DOM操作
-date: 2017-09-22
+date: 2017-10-22
 description: "jQuery，JS类库，jQuery选择器"
 tags: 笔记   
 ---

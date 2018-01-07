@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 13.JavaScrip 面向对象和原型
-date: 2017-09-05
+date: 2017-10-05
 description: "JavaScript，面向对象，原型，继承"
 tags: 笔记   
 ---

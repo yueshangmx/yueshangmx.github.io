@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 6.JavaScript基础与数据类型
-date: 2017-08-15
+date: 2017-09-15
 description: "JS，JavaScript，JS数据类型，JavaScript数据类型"
 tags: 笔记   
 ---

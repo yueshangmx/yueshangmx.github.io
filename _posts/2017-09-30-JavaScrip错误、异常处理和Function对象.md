@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 12.JavaScrip错误、异常处理和Function对象
-date: 2017-08-30
+date: 2017-09-30
 description: "JavaScript，闭包，try Catch，Function 对象"
 tags: 笔记   
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JavaScrip 总结二
-date: 2017-09-07
+date: 2017-10-07
 description: "JavaScript，总结"
 tags: 笔记   
 ---

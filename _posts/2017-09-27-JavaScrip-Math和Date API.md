@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 11.JavaScript的Math、Date对象
-date: 2017-08-27
+date: 2017-09-27
 description: "JavaScript，Math，Date，API，JS对象"
 tags: 笔记   
 ---

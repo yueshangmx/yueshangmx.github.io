@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 10.JavaScript字符串和正则表达式
-date: 2017-08-25
+date: 2017-09-25
 description: "JavaScript，字符串，String，正则，正则表达式，RegExp"
 tags: 笔记   
 ---
