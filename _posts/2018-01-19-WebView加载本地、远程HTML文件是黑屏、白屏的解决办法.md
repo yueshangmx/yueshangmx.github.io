@@ -24,5 +24,8 @@ webview.getSettings().setJavaScriptEnabled(true);
 
 这些方法我都试过了一遍 但发现都没有达到很好的效果 实际上 非常简单 你可以通过添加一句代码就可以解决这个困扰你的问题 那就是
 ```
-webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);从网上搜索，这似乎是因为硬件加速canvas渲染不支持Chromium WebView，这一行代码可以关闭硬件加速的canvas。大家不妨试试，有什么错误的请指正。如果还是不行的话 我觉得只能修改网页body标签的css样式 让背景为白色了
+webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+从网上搜索，这似乎是因为硬件加速canvas渲染不支持Chromium WebView，
+这一行代码可以关闭硬件加速的canvas。大家不妨试试，有什么错误的请指正。
+如果还是不行的话 我觉得只能修改网页body标签的css样式 让背景为白色了
 ```
