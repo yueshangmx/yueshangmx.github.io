@@ -22,7 +22,7 @@ webview.getSettings().setJavaScriptEnabled(true);
 
 或者对网页的图文进行异步加载 先在load前利用webview.getSettings().setBlockNetworkImage(true);方法对图片进行阻塞，待文字加载完毕后，再在onPageFinished(WebView view, String url) 方法中取消图片阻塞。
 
-这些方法我都试过了一遍 但发现都没有达到很好的效果 实际上 非常简单 你可以通过添加一句代码就可以解决这个困扰你的问题 那就是
+这些方法我都试过了一遍 但发现都没有达到很好的效果 实际上 非常简单 那就是在MainActivity.java文件中添加一句代码
 ```
 webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 从网上搜索，这似乎是因为硬件加速canvas渲染不支持Chromium WebView，
