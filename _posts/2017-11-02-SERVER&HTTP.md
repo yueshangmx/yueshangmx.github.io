@@ -442,3 +442,46 @@ Content-Type - 请求的MIME类型
 503 Server Unavailable        //服务器当前不能处理客户端的请求，一段时间后可能恢复正常
 ```
 更多<a href="http://www.runoob.com/http/http-status-codes.html" target="_blank">状态码</a>
+
+#### MIME类型
+```
+常见的MIME类型
+    * html - text/html
+    * htm  - text/html
+    * xhtml- application/xhtml+xml
+    * css  - text/css
+    * js   - application/javascript text/javascript
+    * json - application/json
+    * jpg  - image/jpeg
+    * jpeg - image/jpeg
+    * png  - image/png
+    * text - text/plain
+    * webm - video/webm
+    * mp4  - video/mp4
+```
+
+####  GET与POST请求方式的请求协议的区别
+```
+GET请求方式
+    * 请求行
+        * 请求类型 - GET
+        * 请求地址 - URL?请求参数
+    * 请求体 - 空
+POST请求方式
+    * 请求行
+        * 请求类型 - POST
+        * 请求地址 - URL
+    * 请求体
+        * 请求参数
+```
+请求参数
+```
+GET请求类型
+    * 将请求数据 - URL?key=value(浏览器地址栏) - 安全相对比较低
+    * 请求地址的长度是有限制的 - 请求数据内容过多
+    * 如果请求数据中包含中文的话,需要转码的 - 容易出现中文乱码问题
+POST请求类型
+    * 浏览器地址栏URL,不包含请求类型 - 安全相对比较高
+    * 请求数据在请求体中 - 对请求数据的大小(长度)没有要求
+    * 如果请求数据中包含中文的话,可以不转码 - 相对来讲对于中文的处理比较好
+```
