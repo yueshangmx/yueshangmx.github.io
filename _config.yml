@@ -6,12 +6,12 @@ description: 欢迎来到我的个人博客~
 avatarTitle: yueshangmx
 # 头像里面的描述
 avatarDesc: HTML/JavaScript
-url: "http://yueshangmx.top"
+url: "http://yueshangmx.xyz"
 
 # Comment
 comment:
    disqus: yueshangmx
-   # uyan: 2146599
+   uyan: 2146599
 
 # Social
 social:
