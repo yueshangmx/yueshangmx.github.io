@@ -320,9 +320,9 @@ http协议的一些问题
     * 服务器端只能记得住当次请求状态
 ```
 
-- HTTP之请求消息Request
+#### HTTP之请求消息Request
 
-`GET请求方式`
+- `GET请求方式`
 
 ![](/images/posts/http/get.png)
 
@@ -356,7 +356,7 @@ Cookie - 将Cookie自动携带请求头
 这个例子的请求数据为`user:123`。
 
 
-`POST请求方式`
+- `POST请求方式`
 
 ![](/images/posts/http/post.png)
 
