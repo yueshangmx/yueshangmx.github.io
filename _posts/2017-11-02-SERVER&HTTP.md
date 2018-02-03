@@ -322,24 +322,84 @@ http协议的一些问题
 
 - HTTP之请求消息Request
 
-GET请求方式
-```
-GET     /562f25980001b1b106000338.jpg HTTP/1.1
-Host        img.mukewang.com
-User-Agent      Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
-Accept      image/webp,image/*,*/*;q=0.8
-Referer     http://www.imooc.com/
-Accept-Encoding     gzip, deflate, sdch
-Accept-Language     zh-CN,zh;q=0.8
-```
-<strong>第一部分：请求行，用来说明请求类型,要访问的资源以及所使用的HTTP版本.</strong>
-GET说明请求类型为GET,[/562f25980001b1b106000338.jpg]为要访问的资源，该行的最后一部分说明使用的是HTTP1.1版本。
+`GET请求方式`
+
+![](/images/posts/http/get.png)
+
+<b>第一部分：请求行，用来说明请求类型,要访问的资源以及所使用的HTTP版本.</b>
+GET说明请求类型为GET,[server.php]为要访问的资源，该行的最后一部分说明使用的是HTTP1.1版本。
 
 <b>第二部分：请求头部，紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息</b>
-从第二行起为请求头部，HOST将指出请求的目的地.User-Agent,服务器端和客户端脚本都能访问它,它是浏览器类型检测逻辑的重要基础.该信息由你的浏览器来定义,并且在每个请求中自动发送等等
+从第二行起为请求头部
+```
+Accept - 表示服务器端接受的MIME类型
+Accept-Encoding - 表示服务器端是否接受压缩
+    * gzip - 是指一种服务器端的压缩格式
+    * 问题 - 客户端请求的数据内容越大
+        * 对网络带宽的要求越高,流量占用大
+        * 用户体验不好 - 速度慢、对服务器造成的压力大
+Accept-Language - 表示服务器端接受的语言
+    * zh-CN - 简体中文
+    * zh-TW - 繁体中文
+    * zh - 中文
+    * us - 英文
+Connection - 表示当前的连接状态
+	   * keep-alive - 表示保持连接
+Host - 表示当前电脑的地址(IP:端口号)
+Referer - 表示当前的请求来源于哪里
+	   http://127.0.0.1/6.server/day03/index.html - 实现防盗链接
+User-Agent - 获取用户的浏览器信息
+	   Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36
+Cookie - 将Cookie自动携带请求头
+```
+<b>第三部分：请求数据也叫主体，可以添加任意的其他数据。</b>
+这个例子的请求数据为`user:123`。
 
-<b>第三部分：空行，请求头部后面的空行是必须的</b>
-即使第四部分的请求数据为空，也必须有空行。
 
-<b>第四部分：请求数据也叫主体，可以添加任意的其他数据。</b>
-这个例子的请求数据为空。
+`POST请求方式`
+
+![](/images/posts/http/post.png)
+
+第一部分：请求行，第一行明了是post请求，以及http1.1版本。
+
+第二部分：请求头部。
+```
+Cache-Control - 缓存控制
+    * max-age=0 - 设置缓存最大活动周期
+        * 0 - 表示没有缓存
+        * 设置缓存保存的最大时间的单位为毫秒/秒
+Content-Length - 请求数据的长度(大小)
+Content-Type - 请求的MIME类型
+    * application/x-www-form-urlencoded
+        * <form>元素提交请求时默认的类型
+        * 一般文件上传时,类型一定这种格式
+```
+
+第三部分：请求数据。
+
+`响应(Response)协议`
+
+![](/images/posts/http/response.png)
+```
+响应行 - HTTP/1.1 200 OK
+    * 状态码
+    * 协议版本
+响应头
+    * Connection - 表示当前的连接状态
+        * keep-alive - 表示保持连接
+    * Content-Length - 响应数据的长度(大小)
+    * Content-Type - 响应数据的MIME类型
+        * 一般情况下 - text/html格式
+        * 设置响应页面编码 - charset=UTF-8
+    * Date - 响应的日期时间
+        Sat, 03 Feb 2018 10:02:57 GMT
+        yyyy-MM-dd hh:mm:ss
+        yyyy年MM月dd日 hh:mm:ss
+    * Keep-Alive - 设置保持连接的超时和最大存活时间
+        * timeout=5, max=99
+        * 一般都是在Connection的值设置为keep-alive时
+    * Server - 响应服务器端的信息
+        Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3
+响应体
+     * 服务器端向客户端进行响应的数据内容
+```
