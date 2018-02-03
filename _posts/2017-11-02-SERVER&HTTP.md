@@ -327,9 +327,11 @@ http协议的一些问题
 ![](/images/posts/http/get.png)
 
 <strong>第一部分：请求行，用来说明请求类型,要访问的资源以及所使用的HTTP版本.</strong>
+
 GET说明请求类型为GET,[server.php]为要访问的资源，该行的最后一部分说明使用的是HTTP1.1版本。
 
 <strong>第二部分：请求头部，紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息</strong>
+
 从第二行起为请求头部
 ```
 Accept - 表示服务器端接受的MIME类型
@@ -353,6 +355,7 @@ User-Agent - 获取用户的浏览器信息
 Cookie - 将Cookie自动携带请求头
 ```
 <strong>第三部分：请求数据也叫主体，可以添加任意的其他数据。</strong>
+
 这个例子的请求数据为`user:123`。
 
 
