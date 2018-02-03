@@ -277,3 +277,13 @@ switch...case
 
        * 执行mysqli_query($conn,'SET NAMES UTF8');
        * 执行$mysqli->query('SET NAMES UTF8');
+
+(3)结果集对象的解析（执行SELECT语句）
+```
+属性
+    * num_rows - 记录数量
+    * field_count - 字段数量
+方法
+    * mysqli_fetch_array(结果集对象) - 返回数组
+    * mysqli_fetch_object(结果集对象) - 返回object
+```
