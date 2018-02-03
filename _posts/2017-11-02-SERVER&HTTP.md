@@ -380,7 +380,7 @@ Content-Type - 请求的MIME类型
 
 第三部分：请求数据。
 
-`响应(Response)协议`
+- `响应(Response)协议`
 
 ![](/images/posts/http/response.png)
 ```
