@@ -287,3 +287,59 @@ switch...case
     * mysqli_fetch_array(结果集对象) - 返回数组
     * mysqli_fetch_object(结果集对象) - 返回object
 ```
+
+### 4.HTTP协议
+
+URL概念：
+```
+URL - 统一资源定位符
+URI - 统一资源标识符
+* URL与URI的区别
+    所有的URL都是URI,但URI不一定是URL
+```
+
+完整的URL包括以下几个部分：<br>
+网络协议:IP地址(虚拟地址):端口号/路径;参数?查询数据#锚点<br>
+http://127.0.0.1:8080/HTTP;JSESSION=123123213?key=value#mylink
+
+#### 网络协议
+
+网络协议是指客户端和服务器端之间的协议。
+
+目前主流的协议为`http协议`-https加密协议、`socket协议`-H5的web socket、`ftp协议、pop3协议`等。
+
+#### HTTP协议
+
+http协议多用于B/S架构。目前最新版本为2.0，主流版本为1.1版本。
+
+http协议的一些问题
+```
+短连接
+    * 每次客户端与服务器端交互时,先建立连接,交互完毕后,关闭链接
+无状态
+    * 服务器端只能记得住当次请求状态
+```
+
+- HTTP之请求消息Request
+
+GET请求方式
+```
+GET     /562f25980001b1b106000338.jpg HTTP/1.1
+Host        img.mukewang.com
+User-Agent      Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
+Accept      image/webp,image/*,*/*;q=0.8
+Referer     http://www.imooc.com/
+Accept-Encoding     gzip, deflate, sdch
+Accept-Language     zh-CN,zh;q=0.8
+```
+<strong>第一部分：请求行，用来说明请求类型,要访问的资源以及所使用的HTTP版本.</strong>
+GET说明请求类型为GET,[/562f25980001b1b106000338.jpg]为要访问的资源，该行的最后一部分说明使用的是HTTP1.1版本。
+
+<b>第二部分：请求头部，紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息</b>
+从第二行起为请求头部，HOST将指出请求的目的地.User-Agent,服务器端和客户端脚本都能访问它,它是浏览器类型检测逻辑的重要基础.该信息由你的浏览器来定义,并且在每个请求中自动发送等等
+
+<b>第三部分：空行，请求头部后面的空行是必须的</b>
+即使第四部分的请求数据为空，也必须有空行。
+
+<b>第四部分：请求数据也叫主体，可以添加任意的其他数据。</b>
+这个例子的请求数据为空。
