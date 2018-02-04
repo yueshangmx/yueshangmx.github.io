@@ -98,7 +98,7 @@ so easy !
 
 　　所有的文章都是 _posts 目录下面，文章格式为 markdown 格式，文章文件名可以是 .markdown 或者 .md。
 
-　　编写一篇新文章很简单，你可以直接从 _posts/ 目录下复制一份出来 `2017-10-15-welcome-to-jekyll副本.markdown` ，修改名字为 2017-10-15-article1.markdown ，注意：文章名的格式前面必须为 2017-10-15- ，日期可以修改，但必须为 年-月-日- 格式，后面的 article1 是整个文章的连接 URL，如果文章名为中文，那么文章的连接URL就会变成这样的：http://yueshangmx.top/2017/10/%E6%90%AD%E5/ ， 所以建议文章名最好是英文的或者阿拉伯数字。 双击 2017-10-15-article1.markdown 打开
+　　编写一篇新文章很简单，你可以直接从 _posts/ 目录下复制一份出来 `2017-10-15-welcome-to-jekyll副本.markdown` ，修改名字为 2017-10-15-article1.markdown ，注意：文章名的格式前面必须为 2017-10-15- ，日期可以修改，但必须为 年-月-日- 格式，后面的 article1 是整个文章的连接 URL，如果文章名为中文，那么文章的连接URL就会变成这样的：http://yueshangmx.xyz/2017/10/%E6%90%AD%E5/ ， 所以建议文章名最好是英文的或者阿拉伯数字。 双击 2017-10-15-article1.markdown 打开
 
 ```
 
@@ -233,7 +233,7 @@ Configuration file: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/yeushangm
 
 表示本地服务部署成功。
 
-在浏览器输入 [127.0.0.1:4000](127.0.0.1:4000) ， 就可以看到[yueshangmx.top](http://yueshangmx.top)博客效果了。
+在浏览器输入 [127.0.0.1:4000](127.0.0.1:4000) ， 就可以看到[yueshangmx.xyz](http://yueshangmx.xyz)博客效果了。
 
 ### 修改成你自己的博客
 
@@ -256,8 +256,8 @@ Configuration file: /Users/baixinpan/Desktop/OpenSource/Mine/Page-Blog/yeushangm
 
 ### Q&A 
 
-> 问题：因为我绑定了自己的域名yueshangmx.top,所以直接使用我的模板可能会报错：The CNAME `yueshangmx.top` is already taken 
-> 解决：把CNAME里面的yueshangmx.top修改成你自己的域名，如果你暂时没有域名，CNAME里面就什么都不用写。
+> 问题：因为我绑定了自己的域名yueshangmx.xyz,所以直接使用我的模板可能会报错：The CNAME `yueshangmx.xyz` is already taken
+> 解决：把CNAME里面的yueshangmx.xyz修改成你自己的域名，如果你暂时没有域名，CNAME里面就什么都不用写。
 
 
 
