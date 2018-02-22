@@ -113,12 +113,12 @@ border-box: 一个盒子的总宽度=margin+width
 ### Bootstrap 4
 `此处学习的还是v3版本,Bootstrap 于2018年年初发布了最新的4.0版本，Bootstrap 4 几乎是对整个项目进行了重写，从 v3 升级到 v4 应该注意的地方如下`
 
-#### 支持的浏览器
+##### 1.支持的浏览器
 
 - v4 现在放弃了对 IE8 以及 iOS 6 的支持，现在仅仅支持 IE9 以上 以及 iOS 7 以上版本的浏览器。如果对于其中需要用到以前的浏览器，那么请使用 v3.
 - 添加了对 Android v5.0 Lollipop 浏览器和 web 视图的官方支持。早期版本的 Android 浏览器和 web 视图仍然只有非官方支持
 
-#### 全局变化
+##### 2.全局变化
 
 - 对于 CSS 文件，从 LESS 切换到了 SCSS.
 - 对于主要的 CSS 单元，从 px 切换到了 rem.
@@ -127,8 +127,91 @@ border-box: 一个盒子的总宽度=margin+width
 - 为 ~ 480px 及其以下添加了一个新的网格层。
 - 通过 SCSS 变量，可以使用可配置的选项来替换单独的可选主题 (例如，$enable-gradients: true)。
 
-#### 组件
+##### 3.组件
 - 对于该包罗万象的新的组件，丢弃了面板，缩略图以及wells。
 - 丢弃了 Glyphicons 图标字体。
 - 丢弃了 Affix jQuery 插件。相反，我们推荐使用 position: sticky。如果想要查看 HTML5，请点击该这里，查看详细具体的填充代码建议。
 - 重构几乎所有的组件来使用更多的 unnested 的类而不是子选择器。
+
+##### 4.Misc
+
+- Bootstrap 不再支持非响应的用法。
+- 丢弃了在线定制器功能，支持更广泛的安装文件以及自定义的工程。
+
+#### 组件上的差别
+
+##### 5.重启
+
+对于 Bootstrap 4 有一个新的部分——重启，即一个新的样式表，基于标准化的基础上再添加上我们自定义的重置样式。当使用 Element 对象的时候我们才会用到选择器——在这里没有类。它使用更模块化的方法将我们重置的样式和组件样式进行分离。它们包括了一些最重要重置比如一些边框尺寸，边界的变化，许多元素从 rem 移动到 em 单元，链接样式，还有许多 element 对象中的变化。
+
+##### 6.版式
+
+- 将所有的 `.text- utilities` 移动到了 `_utilities.scss` 文件。
+- 完全删除了 `.page-header` 类。
+- `.dl-horizontal` 现在需要网格类，增加了列宽的灵活性。
+- 将自定义的`<blockquote>`样式移动到了类——`.blockquote` 和 `.blockquote-reverse` 修饰符中。
+
+##### 7.表格
+
+- 几乎所有实例的 > 符号都被删除了，意味着嵌套的表格现在将自动继承他们的父母的样式。这大大简化了我们的选择器和潜在的自定义设置。
+- 响应表不再需要包装元素。相反，仅仅只需要把 `.table-responsive` 放在 `<table>` 即可。
+- 考虑一致性，将 `.table-condensed` 重命名为 `.table-sm`。
+- 添加了一个新的 `.table-inverse` 选项。
+- 添加了一个新的 `.table-reflow` 选项。
+- 添加了表头修饰符：`.thead-default` 和 `.thead-inverse`。 
+
+##### 8.表单
+
+- 将重置元素移动到了 `_reboot.scss` 文件夹。
+- 分别将 `.input-lg` 和 `.input-sm` 重命名为 `.form-control-lg` 和 `.form-control-sm`。
+- 为了简单起见，现在删除了 `.form-group-*` 类，现在使用 `.form-control-*` 类。
+- 水平表单的检修：取消了 `.form-horizontal` 类的要求。
+- `.form-group` 类现在不再和 `.row` 混合，所以它现在需要网格布局。
+- 将一个新的 `.form-control-label` 类添加到了带有 `.form-controls` 的垂直中心标签中。
+
+##### 9.网格系统
+
+添加了新的 ~ 480px 网格断点，意味着现在有五个总层。
+
+##### 10.按钮和按钮组
+
+- 完全删除了 `.btn-xs` 类。
+- 完全删除了 `.btn-group-xs` 类。 
+
+##### 11.导航(Navs)
+
+- 删除了几乎所有的 `>` 符号，通过使用非嵌套类来实现更简单的样式。
+- 我们现在直接使用单独的 `.navs`, `.nav-items`, 和 `.nav-links` 类而不是像 `.nav > li > a` 这样的 HTML 特定的符号。
+
+##### 12.分页(Pager)
+
+分别将 `.previous` 和 `.next` 重命名为 `.pager-prev` 和 `.pager-next`.
+
+##### 13.Panels, thumbnails, 和 wells
+
+- 对于新的 card 组件，他们几乎全部被删除了。
+- `.panel` 改为 `.card` 将 `.panel-default` 删除并且不进行替换
+- `.panel-heading` 改为 `.card-header` 
+- `.panel-title` 改为 `.card-title` 
+- `.panel-body` 改为 `.card-block` 
+- `.panel-footer` 改为 `.card-footer`
+- `.panel-primary` 改为 `.card-primary` 
+- `.panel-success` 改为 `.card-success` 
+- `.panel-info` 改为 `.card-info`
+- `.panel-warning` 改为 `.card-warning`
+- `.panel-danger` 改为 `.card-danger`
+
+##### 14.轮播(Carousel)
+
+- 将 .item 更名为 .carousel-item.
+
+#### 新的部分
+
+我们已经添加了以及改变了一些现有的组件。如下是新的或更新的样式。
+
+组件|描述
+--|--
+Cards|一个新的、 更灵活的组件，它用来来取代 v3 中的的panels, thumbnails, 和 wells。
+新导航栏|用一个新的、 更简单的组件替换以前的导航栏。
+新进度栏|用现在的 `<progress>` 元素替换旧的 `.progress` `< div >`。
+新的变形的表|添加 `.table-inverse`, 表头选项, 用 `.table-sm`, 和 `.table-reflow` 替换 `.table-condensed`
