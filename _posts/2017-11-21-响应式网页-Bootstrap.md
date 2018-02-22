@@ -2,7 +2,7 @@
 layout: post
 title: 24.Bootstrap响应式网页
 date: 2017-11-21
-description: "响应式网页，Bootstrap，view"
+description: "响应式网页，Bootstrap，viewport"
 tags: 笔记   
 ---
 
@@ -68,4 +68,8 @@ Bootstrap分为五部分：
 (4)插件(Plugin)
 (5)定制(Customize)
 ```
-#### 起步
+##### 实际开发中，html标签通常会添加`lang`属性，其作用是：
+
+`(1)告诉浏览器翻译时如何确定当前网页的基础语言` 
+
+`(2)告诉读屏软件当前页面的基础发音`
