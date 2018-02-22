@@ -203,14 +203,26 @@ border-box: 一个盒子的总宽度=margin+width
 (10).col-md-offset-1~12  向右的偏移
 (11).col-md-push-*/.col-md-pull-* 向右或向左的偏移
 ```
-<strong>col-md-push-*和col-md-offset的区别？</strong>
+###### `col-md-push-*`和`col-md-offset-*`的区别？
 ```text
 实现方式的区别：col-md-offset-*，是利用margin-left实现的，col-md-push-*/col-md-pull-*是利用相对定位实现的。
 效果的区别，col-md-offset-*只能向右便宜，因为实现方式就是margin-left，而push/pull因为是相对定位，既可以左偏移也可以右偏移
 还有一点，如果一行的偏移量+实际的宽度综合超过12，col-md-offset会换行显示，也是因为margin，而push/pull只会一部分不可见（超出容器），因为是相对自身定位。
 从功能上来看，push和pull可以用来给元素换位置，比较灵活。
 ```
-
+###### `.container`的宽度问题：
+```$xslt
+当屏幕宽度>1200px（超大PC显示器-lg）：    容器宽1170px
+当屏幕宽度>992px（普通PC显示器-md）:    容器宽970px
+当屏幕宽度>768px（平板显示器-sm）:        容器宽750px
+当屏幕宽度<768px（手机显示器-xs）:         容器宽auto
+.container-fluid的宽度： width: auto; + before + after
+```
+###### 面试题：Bootstrap布局系统中容器的特点？
+```$xslt
+(1)宽度做了媒体查询。
+(2)添加了前置和后置内容生成，可以防止子元素的越界、浮动造成的影响。
+```
 
 ### Bootstrap 4
 `此处学习的还是v3版本,Bootstrap 于2018年年初发布了最新的4.0版本，Bootstrap 4 几乎是对整个项目进行了重写，从 v3 升级到 v4 应该注意的地方如下[摘自网络]`
