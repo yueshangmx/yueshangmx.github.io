@@ -172,6 +172,45 @@ border-box: 一个盒子的总宽度=margin+width
 .table-hover			带悬停效果的表格
 ```
 
+#### 6.Bootstrap全局CSS样式——栅格布局系统——重点
+
+##### Web开发中页面布局可以采用的方式：
+```$xslt
+(1)使用TABLE做布局
+  优势：简单不易出错  不足：加载效率
+(2)使用DIV+CSS做布局
+  优势：加载速度快、灵活	 不足：不易控制
+(3)使用Bootstrap提供的栅格(Grid Layout)布局系统
+  优势：加载速度快、灵活、支持响应式功能、容易控制（有行/列的概念，但使用DIV+CSS实现） 
+```
+##### 栅格布局系统的特点：
+```text
+(1)所有的行必须放在容器中： .container或.container-fluid
+(2)分为多行(row)，一行中平均分为12列(col)
+(3)网页内容只能放在列(col)中，不能直接放在行(row)
+(4)可以在col中再嵌套row
+(5)col分为四大类： col-xs   col-sm    col-md   col-lg
+(6)col-md-*  *值可为1~12，值就为某个列的宽度(  */12  )
+(7)可以为一个列指定不同屏幕下的不同宽度
+(8) col-lg-*  只对大PC屏幕有效
+    col-md-*   对普通PC和大PC屏幕都有效
+    col-sm-*   对平板、PC、大PC屏幕都有效
+    col-xs-*   对手机、平板、PC大PC屏幕都有效
+(9) .hidden-lg    当前列只在大PC屏幕下隐藏
+    .hidden-md	当前列只在PC屏幕下隐藏
+    .hidden-sm	当前列只在平板屏幕下隐藏
+    .hidden-xs	当前列只在手机屏幕下隐藏
+(10).col-md-offset-1~12  向右的偏移
+(11).col-md-push-*/.col-md-pull-* 向右或向左的偏移
+```
+<strong>col-md-push-*和col-md-offset的区别？</strong>
+```text
+实现方式的区别：col-md-offset-*，是利用margin-left实现的，col-md-push-*/col-md-pull-*是利用相对定位实现的。
+效果的区别，col-md-offset-*只能向右便宜，因为实现方式就是margin-left，而push/pull因为是相对定位，既可以左偏移也可以右偏移
+还有一点，如果一行的偏移量+实际的宽度综合超过12，col-md-offset会换行显示，也是因为margin，而push/pull只会一部分不可见（超出容器），因为是相对自身定位。
+从功能上来看，push和pull可以用来给元素换位置，比较灵活。
+```
+
 
 ### Bootstrap 4
 `此处学习的还是v3版本,Bootstrap 于2018年年初发布了最新的4.0版本，Bootstrap 4 几乎是对整个项目进行了重写，从 v3 升级到 v4 应该注意的地方如下[摘自网络]`
