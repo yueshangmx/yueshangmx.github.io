@@ -73,3 +73,12 @@ Bootstrap分为五部分：
 `(1)告诉浏览器翻译时如何确定当前网页的基础语言` 
 
 `(2)告诉读屏软件当前页面的基础发音`
+
+##### IE浏览器的兼容性问题：
+```$xslt
+X-UA-Compitable:  Cross-UserAgent-Compatible，该元标签只有IE浏览器支持。
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+      设置IE的兼容模式为edge——最新版，尽可能向行业标准看齐。
+```
+
+
