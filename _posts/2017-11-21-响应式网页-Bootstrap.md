@@ -107,11 +107,74 @@ content-box: 一个盒子的总宽度=margin+border+padding+width
 border-box: 一个盒子的总宽度=margin+width
 ```
 
+#### 2.Bootstrap全局CSS样式——按钮
+```text
+.btn { padding:;  border: ;}
+.btn-default { color:;  background:;  border-color:;}
+----------------------
+.btn-danger
+.btn-success
+.btn-warning
+.btn-info
+.btn-primary
+---------------------
+.btn-lg
+.btn-sm
+.btn-xs
+----------------------
+.btn-block
+----------------------
+.pull-left { float: left; }
+.pull-right { float: right; }
+```
 
+#### 3.Bootstrap全局CSS样式——图片
+```text
+.img-rounded
+.img-circle
+.img-thumbnail	#缩略图片
+.img-responsive  #响应式图片
+```
+
+#### 4.Bootstrap全局CSS样式——排版和代码——仅作了解
+```text
+ .text-danger
+ .text-success
+ .text.warning
+ .text-info
+ .text-primary
+--------
+ .bg-danger
+ .bg-success
+ .bg-warning
+ .bg-info
+ .bg-primary
+--------
+ .text-left
+ .text-right
+ .text-center
+ .text-justify  #文本两端调整对齐
+--------
+ .text-uppercase  
+ .text-lowercase
+ .text-capitalize
+--------
+ .list-unstyled
+ .list-inline    
+```
+
+#### 5.Bootstrap全局CSS样式——表格
+```text
+.table
+.table-bordered		带边框的表格
+.table-responsive		响应式表格  注意：使用在table的父元素上，而不是table上
+.table-striped		隔行变色的表格
+.table-hover			带悬停效果的表格
+```
 
 
 ### Bootstrap 4
-`此处学习的还是v3版本,Bootstrap 于2018年年初发布了最新的4.0版本，Bootstrap 4 几乎是对整个项目进行了重写，从 v3 升级到 v4 应该注意的地方如下`
+`此处学习的还是v3版本,Bootstrap 于2018年年初发布了最新的4.0版本，Bootstrap 4 几乎是对整个项目进行了重写，从 v3 升级到 v4 应该注意的地方如下[摘自网络]`
 
 ##### 1.支持的浏览器
 
@@ -215,3 +278,32 @@ Cards|一个新的、 更灵活的组件，它用来来取代 v3 中的的panels
 新导航栏|用一个新的、 更简单的组件替换以前的导航栏。
 新进度栏|用现在的 `<progress>` 元素替换旧的 `.progress` `< div >`。
 新的变形的表|添加 `.table-inverse`, 表头选项, 用 `.table-sm`, 和 `.table-reflow` 替换 `.table-condensed`
+
+#### 移除的部分
+
+`Panels, thumbnails, wells 和 Justified navs`
+
+#### 响应程序
+
+##### 下述已弃用的变量在 V4.0.0 被移除了:
+
+- `@screen-phone`、 `@screen-tablet`、 `@screen-desktop`、 `@screen-lg-desktop`。相反的，使用更多抽象的 `$screen-{xs、 sm、 md、 lg、 xl}-*` 变量。
+- `@screen-sm`，`@screen-md`，`@screen-lg`.相反，使用更明确地命名的变量 `$screen-{xs，sm，md，lg，xl}-min` 。
+- `@screen-xs`，`@screen-xs-min`。这些额外的小断点有没有下限，因此，这些变量在逻辑上是荒谬的。根据 `$screen-xs-max` 改写你的表达式。
+
+##### 响应实用程序类也已经进行了彻底翻新。
+
+- 这些类（`.hidden-xs` `.hidden-sm` `.hidden-md` `.hidden-lg` `.visible-xs-block` `.visible-xs-inline` `.visible-xs-inline-block` `.visible-sm-block` `.visible-sm-inline` `.visible-sm-inline-block` `.visible-md-block` `.visible-md-inline` `.visible-md-inline-block` `.visible-lg-block` `.visible-lg-inline` `.visible-lg-inline-block`）都被删除了。
+- 它们被 `.hidden-xs-up` `.hidden-xs-down` `.hidden-sm-up` `.hidden-sm-down` `.hidden-md-up` `.hidden-md-down` `.hidden-lg-up` `.hidden-lg-down` 进行了替换。
+
+当视区是在给定的断点或更大的范围内 `.hidden-*-up` 类将隐藏元素 (例如`.hidden-md-up` 会隐藏中型、 大型，和特大型设备上的元素)。
+
+当视区是在给定的断点或更小的范围内 `.hidden-*-down` 类将隐藏元素 (例如`.hidden-md-down` 会隐藏超小尺寸、 中小型，和小型设备上的元素)。
+
+当你想要让一个元素可见，你仅仅需要不把它隐藏在这样的屏幕尺寸下，而不是使用显示的 `.visible-*` 类。你可以结合一个 `.hidden-*-up` 类和一个 `.hidden-*-down` 类来在给定的时间间隔的屏幕尺寸上显示元素(如`.hidden-sm-down` `.hidden-xl-up` 仅在中型和大型的设备上显示元素)。
+
+<strong>请注意</strong>，在 v4 中对网格断点进行更改意味着你需要让一个断点更大来实现相同的结果 (例如 和 `.hidden-md-down` 相比 `.hidden-lg-down` 和 `hidden-md` 更相似)。在一些不常见情况下，比如在元素的可见性不能表示为一个单一的连续范围的视区大小的时候，新的响应实用程序类不要试图去容纳它；相反的，您需要在这种情况下使用自定义的 CSS。
+
+#### 使用 Misc 来确定优先级
+
+为视网膜显示器媒体查询删除 `min--moz-device-pixel-ratio` 黑客错误。 删除了 `.hidden` 和 `.show`，因为它在 `jQuery` 的 `$(...).hide()`拥有接口. 因为 IE 9 + 支持 `:disabled`，所以将 `[disabled]` 按钮改成了 `:disabled` 。然而 `fieldset[disabled]` 仍然是必要的，因为本机禁用字段在 IE11 中仍然会存在问题。
