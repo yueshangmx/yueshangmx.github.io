@@ -192,11 +192,11 @@ border-box: 一个盒子的总宽度=margin+width
 (5)col分为四大类： col-xs   col-sm    col-md   col-lg
 (6)col-md-*  *值可为1~12，值就为某个列的宽度(  */12  )
 (7)可以为一个列指定不同屏幕下的不同宽度
-(8) col-lg-*  只对大PC屏幕有效
+(8) col-lg-*   只对大PC屏幕有效
     col-md-*   对普通PC和大PC屏幕都有效
     col-sm-*   对平板、PC、大PC屏幕都有效
     col-xs-*   对手机、平板、PC大PC屏幕都有效
-(9) .hidden-lg    当前列只在大PC屏幕下隐藏
+(9) .hidden-lg  当前列只在大PC屏幕下隐藏
     .hidden-md	当前列只在PC屏幕下隐藏
     .hidden-sm	当前列只在平板屏幕下隐藏
     .hidden-xs	当前列只在手机屏幕下隐藏
@@ -213,9 +213,9 @@ border-box: 一个盒子的总宽度=margin+width
 ###### `.container`的宽度问题：
 ```$xslt
 当屏幕宽度>1200px（超大PC显示器-lg）：    容器宽1170px
-当屏幕宽度>992px（普通PC显示器-md）:    容器宽970px
+当屏幕宽度>992px（普通PC显示器-md）:      容器宽970px
 当屏幕宽度>768px（平板显示器-sm）:        容器宽750px
-当屏幕宽度<768px（手机显示器-xs）:         容器宽auto
+当屏幕宽度<768px（手机显示器-xs）:        容器宽auto
 .container-fluid的宽度： width: auto; + before + after
 ```
 ###### 面试题：Bootstrap布局系统中容器的特点？
