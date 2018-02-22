@@ -6,7 +6,7 @@ description: "响应式网页，Bootstrap，view"
 tags: 笔记   
 ---
 
-### 响应式网页
+### 1.响应式网页
 #### 1.响应式/自适应网页：一个页面，可以在各种不同的设备下浏览，都有不错的浏览体验。
 
 <strong>响应式网页的特点：</strong>
@@ -56,3 +56,16 @@ CSS3MediaQuery有两种用法：
     .box {  ...  }
   }
 ```
+
+### 2.Twitter Bootstrap
+`Bootstrap( bootcss.com )是一个框架HTML/CSS/JS框架，适用于移动设备优先的响应式网页。`
+
+Bootstrap分为五部分：
+```
+(1)起步(Startup)
+(2)全局CSS样式(Global CSS)
+(3)组件(Component)
+(4)插件(Plugin)
+(5)定制(Customize)
+```
+#### 起步
