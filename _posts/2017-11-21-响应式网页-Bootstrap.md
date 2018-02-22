@@ -205,10 +205,10 @@ border-box: 一个盒子的总宽度=margin+width
 ```
 ###### `col-md-push-*`和`col-md-offset-*`的区别？
 ```text
-实现方式的区别：col-md-offset-*，是利用margin-left实现的，col-md-push-*/col-md-pull-*是利用相对定位实现的。
-效果的区别，col-md-offset-*只能向右便宜，因为实现方式就是margin-left，而push/pull因为是相对定位，既可以左偏移也可以右偏移
-还有一点，如果一行的偏移量+实际的宽度综合超过12，col-md-offset会换行显示，也是因为margin，而push/pull只会一部分不可见（超出容器），因为是相对自身定位。
-从功能上来看，push和pull可以用来给元素换位置，比较灵活。
+实现方式的区别： col-md-offset-* ，是利用 margin-left 实现的， col-md-push-*/col-md-pull-* 是利用相对定位实现的。
+效果的区别， col-md-offset-* 只能向右便宜，因为实现方式就是 margin-left ，而 push/pull 因为是相对定位，既可以左偏移也可以右偏移
+还有一点，如果一行的偏移量+实际的宽度综合超过12， col-md-offset 会换行显示，也是因为 margin ，而 push/pull 只会一部分不可见（超出容器），因为是相对自身定位。
+从功能上来看， push 和 pull 可以用来给元素换位置，比较灵活。
 ```
 ###### `.container`的宽度问题：
 ```$xslt
