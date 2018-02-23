@@ -205,7 +205,7 @@ View绑定到Model，把视图中用户可以修改的HTML元素——即表单�
 
 ### 7.AngularJS四大特性之三——依赖注入
 `依赖(Dependency)`：若某个函数调用时需要其它的对象作为形参，就此函数依赖于形参对象。
-```javascript
+```
 function Driver( car ){		//司机依赖于一个car对象
  	car.start();
   car.run();
@@ -215,13 +215,13 @@ function Driver( car ){		//司机依赖于一个car对象
 #### 1.如何解决依赖关系
 
 ##### (1)主动创建方式
-```javascript
+```
 var c1 = new Car();	//主动创建依赖对象
 var d1 = new Driver( c1 );  //传递依赖对象
 ```
 
 ##### (2)被动注入(Injection)方式
-```javascript
+```
 module.controller('控制器', function($scope, $interval){...});
 ```
 Angular中的ngController指令在实例化控制器对象时，会根据指定的形参名，创建出控制器所依赖的对象，并注入给控制器对象——依赖注入（Dependency Injection，DI）现象。
