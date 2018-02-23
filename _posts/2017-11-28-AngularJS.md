@@ -282,3 +282,42 @@ Filter: 把Model数据在显示时以某种特定的格式呈现。
 浏览器需要不停的创建完整的DOM树、删除完整的DOM树|浏览器只需要创建一个完整的DOM树，此后的伪页面切换其实只是在换某个div中的内容。
 每个页面都需要加载自己的CSS和JS文件|整个项目的CSS和JS文件只需要加载一次
 
+#### 手动实现单页应用的步骤：
+```text
+(1)创建一个完整的HTML页面（如index.html)，引入所需要的所有CSS和JS；body中只需要一个伪页面的容器元素，如<div></div>
+(2)创建若干个伪HTML页面/模板页面：只需要声明HTML片段
+(3)客户端请求完整的HTML页面，同时URL中再追加一个特殊的标记，如http://127.0.0.1/index.html#/start——指定要加载的伪页面的名称
+(4)浏览器解析出伪页面名称，查找一个字典，找到该名称对应的模板页面的URL
+  window.location.hash
+  #/start		=>			template/start.html
+  #/m			=>			template/main.html
+  #/detail		=>			template/productdetail.html
+(5)客户端发起异步的AJAX请求，获取模板页面的内容，加载到index.html的伪页面容器中即可
+```
+
+### 9.AngularJS提供的模块——ngRoute
+
+ngRoute模块的用途：就是根据浏览器中URL中的一个特殊的地址标记(形如#/xxx)，查找到该标记所对应的模板页面，并异步加载到当前页面的ngView指令中。
+
+使用步骤
+```text
+(1)创建唯一完整的HTML页面，其中声明一个容器，ngView指令。引入angular.js和angular-route.js
+(2)创建多个模板页面(习惯上放在一个特别的目录下，如tpl)
+(3)创建Module，声明依赖于ng和ngRoute两个模块。
+(4)在Module中配置路由字典。
+(5)使用浏览器做测试：http://IP地址/index.html#/路由地址
+```
+
+#### ngRoute模块中的伪页面跳转
+```text
+(1)通过超链接跳转
+    <a href="#/路由地址">    #不能省
+(2)通过JS跳转
+    <button ng-click="jump()"></button>
+    $scope.jump = function(){
+      $location.path('/路由地址');    //#不能有
+    }
+```
+
+### 总结
+![](/images/posts/angular/angularjs.png)
