@@ -126,6 +126,7 @@ AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购
 含义： 若布尔表达式为true则输出当前元素；否则当前元素在DOM树不存在
 ```
 
+
 ##### (7)其他一些指令
 ```text
 (7)ngClick： 为元素绑定单击事件的监听函数——只能是Model函数($scope.函数名=function(){})，不能是全局函数
