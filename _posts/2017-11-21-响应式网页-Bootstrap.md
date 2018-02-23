@@ -262,8 +262,245 @@ demo:
 ![](/images/posts/bootstrap/form-horizontal.png)
 
 ### 4.Bootstrap 组件
+#### 1.图标字体
+Glyphicons是一套收费的图标字体，提供了Web/移动开发中常用的小图标，Bootstrap中可以免费使用这套字体中的250+个；以服务器端字体形式出现的，即客户端若访问了使用Glyphicons字体的网站，会自动从服务器端下载对应的字体文件。
 
+glyphicon图标字体只能用于“空元素”——不包含任何内容或子元素！如：`<span class="glyphicon glyphicon-***"></span>`
 
+#### 2.按钮组
+```
+.btn-group   			水平按钮组
+.btn-group-vertical		竖直按钮组
+.btn-group.btn-group-justified	水平且两端对齐的按钮组
+.btn-group-lg   大按钮
+.btn-group-sm   小按钮
+.btn-group-xs   超小按钮
+```
+#### 3.下拉菜单
+下拉菜单必须有固定html结构
+```html
+<div class="dropdown">						#相对定位的父元素
+  <a data-toggle="dropdown">触发元素</a>
+  <ul/div class="dropdown-menu">			#绝对定位
+    <li class="drop-header"></li>     /*分类小标题*/
+    <li class="divider"></li>     /*分割线*/
+    隐藏元素
+  </ul/div>    	
+</div>
+```
+
+#### 4.导航(非导航条)
+
+##### 标签页式导航
+```html
+<ul class="nav  nav-tabs">
+  <li>...</li>
+  <li>...</li>
+</ul>
+```
+
+##### 胶囊式导航
+```html
+<ul class="nav  nav-pills">
+  <li>...</li>
+  <li>...</li>
+</ul>
+```
+##### 此外，还有两种导航变种：
+```text
+(1)两端对齐的导航    .nav.nav-tabs/pills.nav-justified
+(2)竖直放置的胶囊导航   .nav.nav-pills.nav-stacked
+```
+
+#### 5.响应式导航条
+`响应式导航条`：在PC和平板中默认要显示所有的内容；但在手机中导航条中默认只显示“LOGO/Brand”，以及一个“菜单折叠展开按钮”，只有单击折叠按钮后才显示所有的菜单项。
+
+##### 导航条的结构：
+```html
+<div class="navbar navbar-default">
+  <div class="container">
+    <!--导航条的头部-->
+    <div class="navbar-header">
+      <!--logo/商标-->
+      <a class="navbar-brand" href="#"></a>
+      <!--折叠菜单触发按钮-->
+      <button class="navbar-toggle" type="button">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!--导航条的折叠部分-->
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">首页</a></li>
+        <li class="active"><a href="#">新闻</a></li>
+        <li class="dropdown">
+          <a data-toggle="dropdown" href="#">产品<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">电视</a></li>
+            <li><a href="#">电脑</a></li>
+            <li><a href="#">手机</a></li>
+          </ul>
+        </li>
+      </ul>
+      <a class="navbar-link navbar-right navbar-text" href="#">注册</a>
+      <span class="navbar-text navbar-right">|</span>
+      <button class="btn btn-success navbar-btn navbar-right" type="button">登录</button>
+      <form action="#" class="navbar-form navbar-right">
+        <div class="form-group has-feedback">
+          <!--Screen Reader Only  仅屏幕阅读软件可见-->
+          <label class="sr-only" for="search">搜索</label>
+          <input type="search" id="search" class="form-control" placeholder="Search">
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+```
+##### Bootstrap中导航条的按颜色：
+```text
+1)浅色底深色的字		.navbar-default
+2)深色底浅色的字		.navbar-inverse
+```
+
+##### Bootstrap中导航条的按定位：
+```text
+1)相对定位position: relative		默认值
+2)固定定位position: fixed      .navbar-fixed-top/bottom
+```
+
+#### 其他一些组件
+```text
+路径导航(面包屑)　 .breadcrumb
+分页/翻页　     .pagination/.pager
+标签    .label
+徽章    .badge
+巨幕    .jumbotron
+水井    .well 
+页头    .page-header
+```
+
+### 5.Bootstrap 插件
+Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。
+
+调用上述十几个插件可以用两种格式：
+```html
+(1)传统的JS方式调用：  $(...).dropdown();   $().tab(...);
+(2)使用data-*扩展属性方式调用：  <a  data-toggle="dropdown">
+```
+
+#### 1.下拉菜单
+```text
+(1)$().dropdown( );
+(2)<a data-toggle="dropdown">
+```
+
+#### 2.标签页(tab)
+```text
+(1) $().tab();
+(2) <a data-toggle="tab">
+```
+
+#### 3.弹出框
+
+##### (1)工具提示框(tooltip)   	
+```text
+data-toggle="tooltip"
+```
+
+##### (2)弹出框(popover)		
+```text
+data-toggle="popover"
+```
+
+##### (3)警告框(alert)	
+```html
+<div class="alert  alert-四种颜色 alert-dismissible">
+  <span class="close" data-dismiss="alert">&times;</span>
+  ...
+</div>
+```
+
+##### (4)模态对话框(modal)	
+`模态框定义`：在父窗体中弹出一个子窗体，子窗体若不关闭，父窗体就无法获得焦点，同时父子窗体间还可以传递数据。window.alert()/confirm()/prompt()就是典型例子。
+
+模态框必需的结构：
+```html
+<div class="modal">   			<!--半透明的黑色遮罩层-->
+  <div class="modal-dialog"> 		<!--宽/定位-->
+    <div class="modal-content"> 	<!--边框/背景色/阴影-->
+      <div class="modal-header">头部</div>
+      <div class="modal-body">主体</div>
+      <div class="modal-footer">尾部</div>
+    </div>
+  </div>
+</div>
+```
+
+显示一个模态框：
+```text
+1) <a href="#模态框ID" data-toggle="modal"> 
+2) <button data-toggle="modal" data-target="#模态框ID">
+```
+
+#### 4.折叠效果(collapse)
+
+##### 触发一个折叠效果
+```text
+1) <a href="#折叠元素ID" data-toggle="collapse"> 
+2) <button data-toggle="collapse" data-target="#折叠元素ID">
+```
+
+#### 5.轮播广告(carousel)
+
+本身结构较复杂，编写时只需要记住根class:  .carousel
+```html
+<div class="carousel slide" data-ride="carousel" data-interval="3000">
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="">
+      <div class="carousel-caption">
+        <h2>标题</h2>
+        <p>描述</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="">
+      <div class="carousel-caption">
+        <h2>标题</h2>
+        <p>描述</p>
+      </div>
+    </div>
+    ...
+  </div>
+</div>
+```
+
+#### 6.附加导航（Affix）
+```text
+<div data-spy="affix" data-offset-top="100">
+  <ul class="nav nav-pills">
+</div>
+```
+demo:
+<iframe style="width:100%;height:600px;" src="https://yueshangmx.gitee.io/demo/affix.html"></iframe>
+
+#### 7.滚动监听（scrollspy）- 了解
+随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。
+
+实现思路：
+```text
+(1)页面中必须首先有一个导航菜单(.nav)——其中可以定义一个菜单项为.active
+(2)导航菜单中的超链接的href属性值必须和页面中的某个锚点名一样
+(3)为页面添加滚动事件的监听函数 
+  body.onscroll= function(){
+    if(body滚动的距离 === 某个锚点距离顶端的距离){
+      此锚点对应的超链接的父元素li添加.active；
+    }
+  }
+```
 
 ### Bootstrap 4
 `此处学习的还是v3版本,Bootstrap 于2018年年初发布了最新的4.0版本，Bootstrap 4 几乎是对整个项目进行了重写，从 v3 升级到 v4 应该注意的地方如下[摘自网络]`
