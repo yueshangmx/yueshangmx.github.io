@@ -46,12 +46,11 @@ MVC模式根据逻辑关系，把前端项目的代码分为三个层次：
 ```
 ![](/images/posts/angular/mvc.png)
 
-### 5.AngularJS
-#### 1.概述
+### 5.AngularJS 概述
 
 AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购。所有的操作思路都以“业务数据”为关注点，彻底颠覆了传统的DOM操作。适用于以数据的CRUD操作为主的SPA应用。
 
-#### 2.AngularJS的四大特性
+#### 1.AngularJS的四大特性
 ```text
 (1)MVC设计模式
 (2)双向数据绑定
@@ -59,13 +58,13 @@ AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购
 (4)模块化设计
 ```
 
-#### 3.Angular表达式
+#### 2.Angular表达式
 ```text
 语法：{{ 表达式 }}
 含义：Angular会计算表达式的值，输出在当前位置。
 ```
 
-#### 4.Angular表达式可以执行哪些运算？
+#### 3.Angular表达式可以执行哪些运算？
 ```text
 (1)算数运算？        + - * / % 都可以，唯独不能自增/自减
 (2)比较运算？        > < 都可以
@@ -78,7 +77,7 @@ AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购
 (9)调用ES全局函数？              不可以
 ```
 
-##### JavaScript中对象的分类：
+##### 4.JavaScript中对象的分类：
 ```text
 (1)ECMAScript标准对象  Global String Date RegExp Array Object ...
   可以在任一个js解释器中使用
@@ -126,3 +125,160 @@ AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购
 用法： <ANY ng-if="布尔表达式">
 含义： 若布尔表达式为true则输出当前元素；否则当前元素在DOM树不存在
 ```
+
+##### (7)其他一些指令
+```text
+(7)ngClick： 为元素绑定单击事件的监听函数——只能是Model函数($scope.函数名=function(){})，不能是全局函数
+(8)ngMouseOver: 鼠标覆盖移动
+(9)ngSrc: 为IMG标签指定src属性，但可以防止404请求错误
+(10)ngShow:  若赋值为true，则display:block；否则display:none;
+(11)ngHide:  若赋值为true，则display:none；否则display:block;
+```
+
+#### 6.ng模块中提供的service组件
+```text
+(1)$rootScope	  用于在所有的控制器间共享数据的服务
+(2)$interval      周期性定时器服务
+(3)$timeout       一次性定时器服务
+```
+<strong>面试题：$interval和window.setInterval()的区别？</strong>
+```text
+$interval修改的任何Model数据，底层会立即遍历一遍$digest队列；
+setInterval()即使修改了Model数据，也不会遍历$digest队列；
+```
+
+#### 7.AngularJS中声明模型数据的方式
+
+##### (1)使用ngInit指令来声明Model数据
+```text
+<ANY ng-init="变量名=值;">
+说明：此方式将Model声明在View中，严重违反了MVC模型的分工，不推荐使用
+```
+
+##### (2)使用Controller对象创建Model数据——符合MVC模型分工
+```text
+新版本的AngularJS中创建Model的语法：
+ngApp=>Module=>Controller=>Model
+1)声明一个AngularJS的应用程序： ngApp
+2)创建一个自定义的模块：	angular.module('模块名', [依赖列表])
+3)在应用中注册自定义模块：  ng-app="模块名"
+4)在模块中声明Controller函数
+5)在View中指定Controller对象的作用范围——调用控制器创建函数
+6)在Controller中声明Model数据
+```
+
+<strong>面试题： AngularJS与jQuery的关系？</strong>
+```text
+jQuery操作思路：先找元素，再操作元素   $(....).xxx();
+AngularJS操作思路：创建业务数据、绑定数据、维护数据
+  AngularJS已经把底层/低级的DOM操作，为开发者封装起来了
+AngularJS在加载时会查看当前页面是否已经加载了jquery.js(就是判断window.jQuery是否存在)，若存在则所有的DOM操作全都使用jQuery提供的方法；若不存在，则anglarJS会使用自定义的jQuery精简版本——jqLite——只有jQuery的核心方法。
+```
+
+#### 8.控制器的作用范围/作用域
+```text
+(1)每次调用ngController都会创建一个新的Controller对象
+(2)每个Controller对象都有唯一的$scope对象
+(3)$scope就表示当前控制器对象的有效范围/作用域
+(4)声明在某个$scope中模型数据，一般情况下不能被其他的控制器所使用。
+(5)若想在多个控制器间共享/传递数据，可以声明在根作用域中——$rootScope—每个Angular应用(ngApp)只有一个唯一的$rootScope对象 
+(6)控制器的本质用途：用于划分一个大型页面中的不同的DIV块——每个这样的块中都有自己专用的数据，以及可以与其他块共享的数据。
+```
+
+### 6.AngularJS四大特性之二——双向数据绑定
+
+#### (1)方向1：Model绑定到View
+```text
+Model绑定到View，此后不论何时只要Model发生改变，View会自动立即同步更新。
+实现方法：{{ }}、ngBind、ngIf、ngRepeat、ngShow、ngChecked ... 等等几乎所有的显示数据的指令都实现了方向1的绑定。
+```
+
+#### (2)方向2：View绑定到Model
+```text
+View绑定到Model，把视图中用户可以修改的HTML元素——即表单控件——的值绑定到一个Model变量上。此后，不论何时只要用户修改了表单控件的值，后台模型变量的值会立即随之改变。
+实现方法：只有ngModel指令可以！ 为了监视到Model变量真的被改变了，可以使用$scope.$watch()函数对Model数据的值进行监视。
+  单行文本输入域，ngMode可以把value属性值绑定到Model变量
+  复选框，ngModel可以把true/false值绑定到Model变量
+  单选框，ngModel可以把当前选中的单选框的value值绑定到Model变量
+  下拉框，ngModel可以把当前选中的option的value值绑定到Model变量
+```
+
+### 7.AngularJS四大特性之三——依赖注入
+`依赖(Dependency)`：若某个函数调用时需要其它的对象作为形参，就此函数依赖于形参对象。
+```javascript
+function Driver( car ){		//司机依赖于一个car对象
+ 	car.start();
+  car.run();
+  car.stop();
+}
+```
+#### 1.如何解决依赖关系
+
+##### (1)主动创建方式
+```javascript
+var c1 = new Car();	//主动创建依赖对象
+var d1 = new Driver( c1 );  //传递依赖对象
+```
+
+##### (2)被动注入(Injection)方式
+```javascript
+module.controller('控制器', function($scope, $interval){...});
+```
+Angular中的ngController指令在实例化控制器对象时，会根据指定的形参名，创建出控制器所依赖的对象，并注入给控制器对象——依赖注入（Dependency Injection，DI）现象。
+
+##### 注意
+```text
+(1)Angular在创建控制器对象时，会根据形参列表中的每个形参的名称来创建依赖的对象，故控制器声明函数不能声明Angular无法识别的形参名——Angular只提供了这一种依赖注入方式——根据形参名来注入依赖的对象！
+(2)若项目JS文件使用了类似yuicompressor等压缩程序，默认会把函数的形参名精简为一个字母的形式，会导致Angular的依赖注入失败！
+  解决办法：
+    module.controller('控制器名', ['$scope','$interval','$http',function(aaa,bbb,ccc){...}]);
+```
+
+#### 2.可以被注入的对象 — 所有的service/provider对象都可以被注入
+```text
+(1)$rootScope：在多个控制器间共享数据的服务
+(2)$interval：提供周期性定时器服务
+(3)$timeout：
+(4)$log：提供五个基本的日志输出服务
+(5)$http：提供异步HTTP请求（AJAX）服务
+  用法： $http({method: 'GET',url: 'Url'}).
+        then(function success(response) {
+              // 请求成功执行代码
+          }, function error(response) {
+              // 请求失败执行代码
+        });
+  简化版：	$http.get('Url', config).then(success, error);
+          $http.post('Url', data, config).then(success, error);
+(6)$location
+```
+
+#### 3.ng模块中提供的过滤器(filter)
+
+Filter: 把Model数据在显示时以某种特定的格式呈现。
+```text
+(1)lowercase
+  {{ 表达式 | lowercase }}
+(2)uppercase
+  {{ 表达式 | uppercase }}
+(3)number
+  {{ 表达式 | number }}
+  {{ 表达式 | number : 小数位数 }}
+(4)currency
+  {{ 表达式 | currency }}
+  {{ 表达式 | currency : '货币符号' }}
+(5)date
+  {{ 表达式 | date }}    	默认格式： Sep 1, 2015
+  {{ 表达式 | date : '日期时间格式'}}
+```
+
+### 8.Web项目中多页应用和单页应用的比较
+
+多页应用|单页应用(SPA)
+--|--
+项目中有多个完整的HTML页面|整个项目中只有一个完整的HTML页面；其它HTML文件都是HTML片段
+使用超链接、JS实现页面跳转|使用超链接、JS实现"伪跳转"
+所有的页面请求都是同步的——客户端在等待服务器给响应的时候，浏览器中时一片空白|所有的“伪页面请求”都是异步请求——客户端在等待下一个页面片段到来时，仍可以显示前一个页面内容——浏览体验更好
+不便于实现两个页面间切换过场动画|很容易实现两个伪页面间的过场切换动画
+浏览器需要不停的创建完整的DOM树、删除完整的DOM树|浏览器只需要创建一个完整的DOM树，此后的伪页面切换其实只是在换某个div中的内容。
+每个页面都需要加载自己的CSS和JS文件|整个项目的CSS和JS文件只需要加载一次
+
