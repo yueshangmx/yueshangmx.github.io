@@ -167,9 +167,9 @@ border-box: 一个盒子的总宽度=margin+width
 ```text
 .table
 .table-bordered		带边框的表格
-.table-responsive		响应式表格  注意：使用在table的父元素上，而不是table上
+.table-responsive	响应式表格  注意：使用在table的父元素上，而不是table上
 .table-striped		隔行变色的表格
-.table-hover			带悬停效果的表格
+.table-hover		带悬停效果的表格
 ```
 
 #### 6.Bootstrap全局CSS样式——栅格布局系统——重点
@@ -223,6 +223,47 @@ border-box: 一个盒子的总宽度=margin+width
 (1)宽度做了媒体查询。
 (2)添加了前置和后置内容生成，可以防止子元素的越界、浮动造成的影响。
 ```
+
+#### 7.全局CSS样式——表单
+
+##### 1.默认表单
+```html
+<form>
+  <div class="form-group">
+    <label class="control-label"></label>
+    <input class="form-control">
+    <span class="help-block"></span>
+  </div>
+</form>
+```
+demo:
+![](/images/posts/bootstrap/form-default.png)
+
+##### 2.行内表单
+```html
+<form>
+  <div class="form-inline">
+    <label class="control-label"></label>
+    <input class="form-control">
+    <span class="help-block"></span>
+  </div>
+</form>
+```
+demo:
+![](/images/posts/bootstrap/form-inline.png)
+
+##### 3.水平表单
+```html
+<form class="form-horizontal">	
+  使用栅格系统来控制label/input/help-block的宽度
+</form>
+```
+demo:
+![](/images/posts/bootstrap/form-horizontal.png)
+
+### 4.Bootstrap 组件
+
+
 
 ### Bootstrap 4
 `此处学习的还是v3版本,Bootstrap 于2018年年初发布了最新的4.0版本，Bootstrap 4 几乎是对整个项目进行了重写，从 v3 升级到 v4 应该注意的地方如下[摘自网络]`
