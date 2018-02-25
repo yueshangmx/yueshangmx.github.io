@@ -273,4 +273,29 @@ Filter: 把Model数据在显示时以某种特定的格式呈现。
   {{ 表达式 | date : '日期时间格式'}}
 ```
 
+### 9.AngularJS提供的模块——ngRoute
 
+ngRoute模块的用途：就是根据浏览器中URL中的一个特殊的地址标记(形如#/xxx)，查找到该标记所对应的模板页面，并异步加载到当前页面的ngView指令中。
+
+使用步骤
+```text
+(1)创建唯一完整的HTML页面，其中声明一个容器，ngView指令。引入angular.js和angular-route.js
+(2)创建多个模板页面(习惯上放在一个特别的目录下，如tpl)
+(3)创建Module，声明依赖于ng和ngRoute两个模块。
+(4)在Module中配置路由字典。
+(5)使用浏览器做测试：http://IP地址/index.html#/路由地址
+```
+
+#### ngRoute模块中的伪页面跳转
+```text
+(1)通过超链接跳转
+    <a href="#/路由地址">    #不能省
+(2)通过JS跳转
+    <button ng-click="jump()"></button>
+    $scope.jump = function(){
+      $location.path('/路由地址');    //#不能有
+    }
+```
+
+### 总结
+![](/images/posts/angular/angularjs.png)
