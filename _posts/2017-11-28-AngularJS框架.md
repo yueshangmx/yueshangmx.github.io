@@ -170,8 +170,11 @@ ngApp=>Module=>Controller=>Model
 ```text
 jQuery操作思路：先找元素，再操作元素   $(....).xxx();
 AngularJS操作思路：创建业务数据、绑定数据、维护数据
-  AngularJS已经把底层/低级的DOM操作，为开发者封装起来了
-AngularJS在加载时会查看当前页面是否已经加载了jquery.js(就是判断window.jQuery是否存在)，若存在则所有的DOM操作全都使用jQuery提供的方法；若不存在，则anglarJS会使用自定义的jQuery精简版本——jqLite——只有jQuery的核心方法。
+----
+AngularJS已经把底层/低级的DOM操作，为开发者封装起来了;
+  AngularJS在加载时会查看当前页面是否已经加载了jquery.js(就是判断window.jQuery是否存在)，
+  若存在,则所有的DOM操作全都使用jQuery提供的方法；
+  若不存在，则anglarJS会使用自定义的jQuery精简版本——jqLite——只有jQuery的核心方法。
 ```
 
 #### 8.控制器的作用范围/作用域
@@ -182,4 +185,22 @@ AngularJS在加载时会查看当前页面是否已经加载了jquery.js(就是�
 (4)声明在某个$scope中模型数据，一般情况下不能被其他的控制器所使用。
 (5)若想在多个控制器间共享/传递数据，可以声明在根作用域中——$rootScope—每个Angular应用(ngApp)只有一个唯一的$rootScope对象 
 (6)控制器的本质用途：用于划分一个大型页面中的不同的DIV块——每个这样的块中都有自己专用的数据，以及可以与其他块共享的数据。
+```
+
+### 6.AngularJS四大特性之二——双向数据绑定
+
+#### (1)方向1：Model绑定到View
+```text
+Model绑定到View，此后不论何时只要Model发生改变，View会自动立即同步更新。
+实现方法：{{ }}、ngBind、ngIf、ngRepeat、ngShow、ngChecked ... 等等几乎所有的显示数据的指令都实现了方向1的绑定。
+```
+
+#### (2)方向2：View绑定到Model
+```text
+View绑定到Model，把视图中用户可以修改的HTML元素——即表单控件——的值绑定到一个Model变量上。此后，不论何时只要用户修改了表单控件的值，后台模型变量的值会立即随之改变。
+实现方法：只有ngModel指令可以！ 为了监视到Model变量真的被改变了，可以使用$scope.$watch()函数对Model数据的值进行监视。
+  单行文本输入域，ngMode可以把value属性值绑定到Model变量
+  复选框，ngModel可以把true/false值绑定到Model变量
+  单选框，ngModel可以把当前选中的单选框的value值绑定到Model变量
+  下拉框，ngModel可以把当前选中的option的value值绑定到Model变量
 ```
