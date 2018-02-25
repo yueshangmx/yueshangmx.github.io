@@ -147,3 +147,39 @@ setInterval()即使修改了Model数据，也不会遍历$digest队列；
 ```
 
 #### 7.AngularJS中声明模型数据的方式
+
+##### (1)使用ngInit指令来声明Model数据
+```text
+<ANY ng-init="变量名=值;">
+说明：此方式将Model声明在View中，严重违反了MVC模型的分工，不推荐使用
+```
+
+##### (2)使用Controller对象创建Model数据——符合MVC模型分工
+```text
+新版本的AngularJS中创建Model的语法：
+ngApp=>Module=>Controller=>Model
+1)声明一个AngularJS的应用程序： ngApp
+2)创建一个自定义的模块：	angular.module('模块名', [依赖列表])
+3)在应用中注册自定义模块：  ng-app="模块名"
+4)在模块中声明Controller函数
+5)在View中指定Controller对象的作用范围——调用控制器创建函数
+6)在Controller中声明Model数据
+```
+
+<strong>面试题： AngularJS与jQuery的关系？</strong>
+```text
+jQuery操作思路：先找元素，再操作元素   $(....).xxx();
+AngularJS操作思路：创建业务数据、绑定数据、维护数据
+  AngularJS已经把底层/低级的DOM操作，为开发者封装起来了
+AngularJS在加载时会查看当前页面是否已经加载了jquery.js(就是判断window.jQuery是否存在)，若存在则所有的DOM操作全都使用jQuery提供的方法；若不存在，则anglarJS会使用自定义的jQuery精简版本——jqLite——只有jQuery的核心方法。
+```
+
+#### 8.控制器的作用范围/作用域
+```text
+(1)每次调用ngController都会创建一个新的Controller对象
+(2)每个Controller对象都有唯一的$scope对象
+(3)$scope就表示当前控制器对象的有效范围/作用域
+(4)声明在某个$scope中模型数据，一般情况下不能被其他的控制器所使用。
+(5)若想在多个控制器间共享/传递数据，可以声明在根作用域中——$rootScope—每个Angular应用(ngApp)只有一个唯一的$rootScope对象 
+(6)控制器的本质用途：用于划分一个大型页面中的不同的DIV块——每个这样的块中都有自己专用的数据，以及可以与其他块共享的数据。
+```
