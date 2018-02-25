@@ -236,7 +236,7 @@ Angular中的ngController指令在实例化控制器对象时，会根据指定�
     module.controller('控制器名', ['$scope','$interval','$http',function(aaa,bbb,ccc){...}]);
 ```
 
-#### 3.可以被注入的对象 — 所有的service/provider对象都可以被注入
+#### 2.可以被注入的对象 — 所有的service/provider对象都可以被注入
 ```text
 (1)$rootScope：在多个控制器间共享数据的服务
 (2)$interval：提供周期性定时器服务
@@ -254,7 +254,7 @@ Angular中的ngController指令在实例化控制器对象时，会根据指定�
 (6)$location
 ```
 
-#### 4.ng模块中提供的过滤器(filter)
+#### 3.ng模块中提供的过滤器(filter)
 
 Filter: 把Model数据在显示时以某种特定的格式呈现。
 ```text
