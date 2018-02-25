@@ -254,3 +254,5 @@ Angular中的ngController指令在实例化控制器对象时，会根据指定�
 (6)$location
 ```
 #### 3.ng模块中提供的过滤器
+
+`Filter`: 把Model数据在显示时以某种特定的格式呈现。
