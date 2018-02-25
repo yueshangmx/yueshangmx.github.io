@@ -134,3 +134,16 @@ AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购
 (11)ngHide:  若赋值为true，则display:none；否则display:block;
 ```
 
+#### 6.ng模块中提供的service组件
+```text
+(1)$rootScope	  用于在所有的控制器间共享数据的服务
+(2)$interval      周期性定时器服务
+(3)$timeout       一次性定时器服务
+```
+<strong>面试题：$interval和window.setInterval()的区别？</strong>
+```text
+$interval修改的任何Model数据，底层会立即遍历一遍$digest队列；
+setInterval()即使修改了Model数据，也不会遍历$digest队列；
+```
+
+#### 7.AngularJS中声明模型数据的方式
