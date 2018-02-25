@@ -273,18 +273,4 @@ Filter: 把Model数据在显示时以某种特定的格式呈现。
   {{ 表达式 | date : '日期时间格式'}}
 ```
 
-#### 8.Web项目中多页应用和单页应用的比较
 
-
-#### 手动实现单页应用的步骤：
-```text
-(1)创建一个完整的HTML页面（如index.html)，引入所需要的所有CSS和JS；body中只需要一个伪页面的容器元素，如<div></div>
-(2)创建若干个伪HTML页面/模板页面：只需要声明HTML片段
-(3)客户端请求完整的HTML页面，同时URL中再追加一个特殊的标记，如http://127.0.0.1/index.html#/start——指定要加载的伪页面的名称
-(4)浏览器解析出伪页面名称，查找一个字典，找到该名称对应的模板页面的URL
-  window.location.hash
-  #/start		=>			template/start.html
-  #/m			=>			template/main.html
-  #/detail		=>			template/productdetail.html
-(5)客户端发起异步的AJAX请求，获取模板页面的内容，加载到index.html的伪页面容器中即可
-```
