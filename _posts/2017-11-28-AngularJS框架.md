@@ -204,3 +204,34 @@ View绑定到Model，把视图中用户可以修改的HTML元素——即表单�
   单选框，ngModel可以把当前选中的单选框的value值绑定到Model变量
   下拉框，ngModel可以把当前选中的option的value值绑定到Model变量
 ```
+
+### 7.AngularJS四大特性之三——依赖注入
+`依赖(Dependency)`：若某个函数调用时需要其它的对象作为形参，就此函数依赖于形参对象。
+```
+function Driver( car ){		//司机依赖于一个car对象
+ 	car.start();
+  car.run();
+  car.stop();
+}
+```
+#### 1.如何解决依赖关系
+ 
+##### (1)主动创建方式
+```
+var c1 = new Car();	//主动创建依赖对象
+var d1 = new Driver( c1 );  //传递依赖对象
+```
+
+##### (2)被动注入(Injection)方式
+```
+module.controller('控制器', function($scope, $interval){...});
+```
+Angular中的ngController指令在实例化控制器对象时，会根据指定的形参名，创建出控制器所依赖的对象，并注入给控制器对象——依赖注入（Dependency Injection，DI）现象。
+
+##### 注意
+```text
+(1)Angular在创建控制器对象时，会根据形参列表中的每个形参的名称来创建依赖的对象，故控制器声明函数不能声明Angular无法识别的形参名——Angular只提供了这一种依赖注入方式——根据形参名来注入依赖的对象！
+(2)若项目JS文件使用了类似yuicompressor等压缩程序，默认会把函数的形参名精简为一个字母的形式，会导致Angular的依赖注入失败！
+  解决办法：
+    module.controller('控制器名', ['$scope','$interval','$http',function(aaa,bbb,ccc){...}]);
+```
