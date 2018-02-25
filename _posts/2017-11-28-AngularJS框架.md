@@ -236,40 +236,5 @@ Angular中的ngController指令在实例化控制器对象时，会根据指定�
     module.controller('控制器名', ['$scope','$interval','$http',function(aaa,bbb,ccc){...}]);
 ```
 
-#### 2.可以被注入的对象 — 所有的service/provider对象都可以被注入
-```text
-(1)$rootScope：在多个控制器间共享数据的服务
-(2)$interval：提供周期性定时器服务
-(3)$timeout：
-(4)$log：提供五个基本的日志输出服务
-(5)$http：提供异步HTTP请求（AJAX）服务
-  用法： $http({method: 'GET',url: 'Url'}).
-        then(function success(response) {
-              // 请求成功执行代码
-          }, function error(response) {
-              // 请求失败执行代码
-        });
-  简化版：	$http.get('Url', config).then(success, error);
-          $http.post('Url', data, config).then(success, error);
-(6)$location
-```
 
-#### 3.ng模块中提供的过滤器(filter)
-
-Filter: 把Model数据在显示时以某种特定的格式呈现。
-```text
-(1)lowercase
-  {{ 表达式 | lowercase }}
-(2)uppercase
-  {{ 表达式 | uppercase }}
-(3)number
-  {{ 表达式 | number }}
-  {{ 表达式 | number : 小数位数 }}
-(4)currency
-  {{ 表达式 | currency }}
-  {{ 表达式 | currency : '货币符号' }}
-(5)date
-  {{ 表达式 | date }}    	默认格式： Sep 1, 2015
-  {{ 表达式 | date : '日期时间格式'}}
-```
 
