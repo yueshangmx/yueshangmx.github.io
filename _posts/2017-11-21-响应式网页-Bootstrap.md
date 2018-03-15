@@ -485,7 +485,7 @@ data-toggle="popover"
 </div>
 ```
 demo:
-<iframe style="width:100%;height:600px;" src="https://yueshangmx.gitee.io/demo/affix.html"></iframe>
+<iframe style="width:100%;height:600px;" src="http://yueshangmx.xyz/project/demo/affix.html"></iframe>
 
 #### 7.滚动监听（scrollspy）- 了解
 随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。
