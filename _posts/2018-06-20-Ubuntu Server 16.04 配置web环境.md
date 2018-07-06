@@ -99,3 +99,13 @@ sudo apt-get install php7.2-mysql php7.2-curl php7.2-json php7.2-cgi php7.2-xsl
 
 ![](/images/posts/server/phpinfo.png)
 
+### 安装phpmyadmin
+```text
+sudo apt-get install phpmyadmin
+```
+安装过程会让输入数据库密码
+
+安装完之后设置一下软连接
+```text
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+```
