@@ -45,7 +45,9 @@ wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb
 sudo dpkg -i mysql-apt-config_0.*.****_all.deb
 ```
 安装执行，选择MySQL8.0，OK。<br>
-![](/images/posts/server/ub-mysql.png)
+![](/images/posts/server/ub-mysql.png)<br>
+![](/images/posts/server/ub-mysql-2.png)<br>
+![](/images/posts/server/ub-mysql-3.png)
 
 然后apt update更新一下<br>
 ![](/images/posts/server/apt-update.png)
@@ -54,3 +56,46 @@ sudo dpkg -i mysql-apt-config_0.*.****_all.deb
 ```text
 sudo apt install mysql-server
 ```
+![](/images/posts/server/ub-install-mysql.png)
+
+安装过程中出现如下界面要求用户输入MySQL密码<br>
+![](/images/posts/server/set-passwd.png)
+
+这里注意一下，由于MySQL8.0采用了新的加密方式，正是因为这个加密方式才导致phpmyadmin和一些图形管理工具登录不了MySQL，所以我们这里选择采用5.x的加密方式。
+
+![](/images/posts/server/set-passwd-2.png)
+
+最后在终端登录mysql可以看到MySQL版本号为8.0！！
+```text
+sudo /etc/init.d/mysql start #启动mysql服务
+mysql -u root -p
+```
+![](/images/posts/server/mysql-version.png)
+
+
+
+### PHP7.2
+
+1.添加PHP7.2的源并安装
+```text
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install -y php7.2
+```
+![](/images/posts/server/ub-install-php.png)
+
+然后再安装你需要的模块
+```text
+sudo apt-get install php7.2-mysql php7.2-curl php7.2-json php7.2-cgi php7.2-xsl
+```
+
+安装完成之后再web跟目录创建一个info.php文件，输入
+```text
+<?php 
+  phpinfo() 
+?>
+```
+然后打开http://127.0.0.1/info.php,你就可以看到下面的界面
+
+![](/images/posts/server/phpinfo.png)
+
