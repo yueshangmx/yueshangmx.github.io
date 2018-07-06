@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ubuntu服务器web环境搭建
-date: 2018-06-10
+date: 2018-06-20
 description: "Ubuntu，Apache，php，mysqli，"
 tags: 笔记   
 ---
