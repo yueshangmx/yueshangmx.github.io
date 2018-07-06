@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Centos服务器web环境搭建
+title: Ubuntu服务器web环境搭建
 date: 2018-06-10
-description: "centos，Apache，php，mysqli，"
+description: "Ubuntu，Apache，php，mysqli，"
 tags: 笔记   
 ---
 
