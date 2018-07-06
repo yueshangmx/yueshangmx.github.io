@@ -12,7 +12,7 @@ tags: 笔记
 ```text
 sudo apt-get update
 ```
-- 2. 在更新完成后（如果不想检查更新，也可直接输入此步）输入：
+- 2.在更新完成后（如果不想检查更新，也可直接输入此步）输入：
 ```text
 sudo apt-get install apache2
 ```
