@@ -48,12 +48,12 @@ tags: 笔记
 	    fields: {
 	    	firstName:{
 	    		container: '#firstNameMessage',
-	    		*enabled:Boolean,//启用或禁用字段验证
+	    		enabled:Boolean,//启用或禁用字段验证
 	    		excluded: Boolean,//是否排除该字段
 	    		feedbackIcons:Boolean,//启用或禁用反馈图标,Form settings中为object
 	    		group: String,
 	    		message: String,
-	    		*selector: '#firstName',//用于无法使用字段的name属性的情况
+	    		selector: '#firstName',//用于无法使用字段的name属性的情况
 	    		threshold: Number,
 	    		trigger: String,
 	    		verbose: Boolean,
@@ -147,10 +147,7 @@ tags: 笔记
     	//error.validator.bv
     	//success.validator.bv
 	});
-		
-	
- 
- 
+	//
 	//等价于
 	// <form data-bv-message="This value is not valid"
 	//       data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
@@ -165,8 +162,5 @@ tags: 笔记
 	//         fields: ...
 	//     });
 	// });
- 
- 
-
 ```
 
